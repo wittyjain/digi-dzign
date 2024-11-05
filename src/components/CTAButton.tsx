@@ -8,7 +8,7 @@ interface CTAButtonProps extends ButtonProps {
   floatingImageUrl?: string;
 }
 
-export default function Component({
+export default function CTAButton({
   children = "LET'S TALK",
   circleCount = 3,
   floatingImageUrl = "",

@@ -15,7 +15,7 @@ const Header = ({}: HeaderProps) => {
       <div className="flex gap-x-4">
         <Button
           variant="outline"
-          className="hidden md:inline-flex rounded-3xl border-primary px-2"
+          className="hidden md:inline-flex rounded-3xl border-primary px-[10px]"
         >
           <Image src={AudioWaveIcon} alt={""} width={24} height={5}></Image>
         </Button>

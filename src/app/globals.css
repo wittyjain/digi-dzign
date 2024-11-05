@@ -39,6 +39,8 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --grid-space: calc((100% - 11 * var(--grid-gap)) / 12);
+    --grid-gap: 2rem;
   }
   .dark {
     --background: 240 10% 3.9%;
