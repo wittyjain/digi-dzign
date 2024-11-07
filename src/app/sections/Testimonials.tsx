@@ -42,7 +42,7 @@ const Testimonials = () => {
           />
         </div>
         <Carousel
-          className="w-full max-w-7xl mx-auto my-20"
+          className="w-full max-w-7xl my-20"
           opts={{
             align: "start",
             loop: false,
