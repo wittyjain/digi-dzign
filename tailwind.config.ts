@@ -64,6 +64,7 @@ const config: Config = {
         "contact-form-bg": "url('/images/contact-form-bg.svg')",
         "featured-projects": "url('/images/featured-projects-bg.png')",
         "web-services": "url('/images/work/web-services.png')",
+        "testimonials": "url('/images/testimonials-bg.svg')",
       },
     },
   },
