@@ -60,7 +60,7 @@ const Footer = ({}: FooterProps) => {
   return (
     <footer className="row-start-3 flex flex-col gap-8 flex-wrap p-4 md:p-8 xl:px-16 py-4 bg-footer-pastel bg-no-repeat bg-cover">
       <Logo />
-      <div className="flex flex-row justify-between items-start">
+      <div className="flex flex-row justify-between items-start flex-wrap">
         <div>
           <div className="max-w-96">
             <p className="leading-7 [&:not(:first-child)]:mt-6 text-[#21005E]">
@@ -72,7 +72,7 @@ const Footer = ({}: FooterProps) => {
             <CTAButton floatingImageUrl={"/images/partner_with_us.png"} />
           </div>
         </div>
-        <div className="flex gap-x-24">
+        <div className="flex gap-x-24 flex-wrap">
           {footerMenus.map((menu) => (
             <div key={menu.title} className="flex flex-col max-w-[40%]">
               <ul className="list-none text-[#21005e]">
@@ -95,12 +95,12 @@ const Footer = ({}: FooterProps) => {
         <div className="text-[#21005E] font-semibold text-3xl md:text-5xl lg:text-7xl mt-8">
           info@digidzign.com
         </div>
-        <div className="flex justify-between items-end">
+        <div className="flex justify-between items-end flex-wrap">
           <div className="flex gap-x-4">
             {socialMedia.map((platform) => (
               <div
                 key={platform.id}
-                className="w-16 h-16 rounded-full bg-[#21005E] flex justify-center items-center"
+                className="w-8 h-8 lg:w-16 lg:h-16 rounded-full bg-[#21005E] flex justify-center items-center"
               >
                 <Image
                   src={platform.logo}

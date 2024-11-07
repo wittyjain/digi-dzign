@@ -69,8 +69,8 @@ export default function Component() {
   //bg-gradient-to-bl from-[#A100FF] to-[#21005E]
 
   return (
-    <div className="bg-[#0A0219] bg-contact-form-bg p-4 md:px-8 md:py-12 lg:px-16 lg:py-24">
-      <Card className="w-full bg-white px-16 py-24 rounded-[3rem]">
+    <div className="bg-[#0A0219] bg-contact-form-bg mb-8 p-4 pb-12 md:px-8 md:py-12 lg:px-16 lg:py-24">
+      <Card className="w-full bg-white p-4 lg:px-16 lg:py-24 rounded-[3rem]">
         <CardHeader className="space-y-2">
           <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-9xl font-semibold text-[#21005E]">
             NEED PROJECT HELP?{" "}
@@ -80,7 +80,7 @@ export default function Component() {
         <Form {...form}>
           <form className="relative" onSubmit={form.handleSubmit(onSubmit)}>
             <Card className="border-0 shadow-none bg-card-mask bg-no-repeat bg-cover overflow-hidden">
-              <CardContent className="relative p-0 px-6 pb-16 pt-14 mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-6">
+              <CardContent className="relative p-2 pt-20 pb-12 lg:px-6 lg:pb-16 lg:pt-28 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                 {/* <div
                   className="absolute top-0 left-0 w-full h-full rounded-xl z-0"
                   style={{
@@ -261,16 +261,16 @@ export default function Component() {
                     )}
                   />
                 </div>
-                <div className="z-10 flex justify-end mt-6 col-span-2">
+                <div className="z-10 flex justify-end mt-6 col-span-1 md:col-span-2">
                   <Button
                     type="submit"
-                    className="bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-500 hover:to-emerald-500 text-black font-semibold px-6 py-8 rounded-2xl"
+                    className="bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-500 hover:to-emerald-500 text-black font-semibold px-12 md:px-6 py-8 rounded-2xl w-full md:w-fit flex justify-between"
                     style={{
                       background: `linear-gradient(81.55deg, #DBEF33 12.1%, #60EA5B 65.02%, #32E2CF 101.37%)`,
                     }}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "SUBMITTING..." : "GET IN TOUCH"}
+                    <span>{isSubmitting ? "SUBMITTING..." : "GET IN TOUCH"}</span>
                     <div className="w-10 h-10 rounded-full flex justify-center items-center bg-white pr-1 text-base">
                       <Image
                         src={"/icons/right-arrow.svg"}
@@ -296,37 +296,28 @@ export default function Component() {
           <p className="text-[#D9D8DD] text-lg">or</p>
           <div className="bg-[#D9D8DD] h-px grow ml-2 mr-2 lg:mr-20 lg:ml-4 m-auto" />
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between max-w-4xl mx-auto p-6 gap-16 border rounded-full bg-white">
-          <div className="flex items-center gap-6">
-            <div className="relative h-24 w-24">
+        <div className="flex flex-col md:flex-row items-center justify-between max-w-4xl mx-auto p-6 gap-16 border rounded-xl lg:rounded-full bg-white">
+          <div className="flex justify-center items-center gap-6 flex-wrap">
+            <div className="relative h-24 w-24 min-w-fit">
               {/* Bottom left avatar */}
               <Avatar className="absolute bottom-0 left-0 h-14 w-14 border-4 border-[#0A0219]">
-                <AvatarImage
-                  src="/images/avatar1.png"
-                  alt="Avatar 2"
-                />
+                <AvatarImage src="/images/avatar1.png" alt="Avatar 2" />
               </Avatar>
 
               {/* Bottom right avatar */}
               <Avatar className="absolute bottom-0 right-0 h-14 w-14 border-4 border-[#0A0219]">
-                <AvatarImage
-                  src="/images/avatar2.png"
-                  alt="Avatar 1"
-                />
+                <AvatarImage src="/images/avatar2.png" alt="Avatar 1" />
               </Avatar>
 
               {/* Top avatar */}
               <Avatar className="absolute left-1/2 top-0 h-14 w-14 -translate-x-1/2 border-4 border-[#0A0219]">
-                <AvatarImage
-                  src="/images/avatar3.png"
-                  alt="Avatar 3"
-                />
+                <AvatarImage src="/images/avatar3.png" alt="Avatar 3" />
               </Avatar>
             </div>
             <div className="space-y-1">
-              <h2 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent">
+              <h2 className="text-2xl lg:text-3xl text-center font-bold bg-clip-text text-transparent">
                 <span
-                  className="bg-clip-text text-transparent"
+                  className="bg-clip-text text-transparent text-center lg:text-left"
                   style={{
                     backgroundImage:
                       "linear-gradient(90deg, #0C03AD 0%, #050337 100%)",
@@ -335,14 +326,14 @@ export default function Component() {
                   Want to jump on a call?
                 </span>
               </h2>
-              <p className="text-xl md:text-lg text-[#21005E]">
+              <p className="text-xl md:text-lg text-[#21005E] text-center lg:text-left">
                 Book a 30 minute call
               </p>
             </div>
           </div>
           <Button
             type="submit"
-            className="bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-500 hover:to-emerald-500 text-black font-semibold px-6 py-8 rounded-2xl"
+            className="bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-500 hover:to-emerald-500 text-black font-semibold px-6 py-8 rounded-2xl w-full md:w-fit flex justify-between"
             style={{
               background: `linear-gradient(81.55deg, #DBEF33 12.1%, #60EA5B 65.02%, #32E2CF 101.37%)`,
             }}
