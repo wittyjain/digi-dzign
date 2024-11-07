@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
@@ -198,7 +197,7 @@ CarouselItem.displayName = "CarouselItem"
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+>(({ className, variant = "outline", size = "icon", caretColor, ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -207,11 +206,11 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  size-10 rounded-full bg-white hover:bg-white/80 rounded-full border border-white/80 hover:bg-[#2C2C2C]",
+        "absolute  size-10 bg-white hover:bg-white/80 rounded-full border border-white/80 hover:bg-[#2C2C2C]",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-          !canScrollPrev ? "bg-transparent" : "bg-white",
+        !canScrollPrev ? "bg-transparent" : "bg-white",
         className
       )}
       disabled={!canScrollPrev}
@@ -237,7 +236,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-10 rounded-full bg-white hover:bg-white/80 rounded-full border border-white/80 hover:bg-[#2C2C2C]",
+        "absolute size-10 bg-white hover:bg-white/80 rounded-full border border-white/80 hover:bg-[#2C2C2C]",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",

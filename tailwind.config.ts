@@ -63,6 +63,7 @@ const config: Config = {
         "card-mask": "url('/images/card-mask.png')",
         "contact-form-bg": "url('/images/contact-form-bg.svg')",
         "featured-projects": "url('/images/featured-projects-bg.png')",
+        "web-services": "url('/images/work/web-services.png')",
       },
     },
   },

@@ -9,7 +9,7 @@ interface WebServicesCardProps {
   className?: string;
 }
 
-export default function Component({
+export default function ServiceCard({
   title = "Web Services",
   description = "Your landing page is the first thing your customers, investors and partners see.",
   deviceImage = "",

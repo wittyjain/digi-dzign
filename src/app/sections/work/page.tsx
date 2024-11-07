@@ -5,8 +5,14 @@ const WorkPage = () => {
   return (
     <div>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start h-lvh">
-        <div className="w-full grid grid-cols-12 p-4 md:p-8 xl:p-16 pb-10  sm:p-20 font-semibold text-9xl gap-y-4 mb-20">
-          <div className="col-start-5 col-end-12 bg-gradient-to-t to-[#A100FF]  from-[#21005E] text-transparent bg-clip-text ">
+        <h1 className="w-full grid grid-cols-12 p-4 md:p-8 xl:p-16 pb-10  sm:p-20 font-semibold text-9xl gap-y-4 mb-20">
+          <div
+            className="col-start-5 col-end-12 text-transparent bg-clip-text "
+            style={{
+              backgroundImage:
+                "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+            }}
+          >
             WHAT WE
           </div>
           <div className="absolute top-[10px] left-1 ">
@@ -18,10 +24,16 @@ const WorkPage = () => {
               className="mix-blend-luminosity"
             />
           </div>
-          <div className="col-start-3 col-end-10 bg-gradient-to-t to-[#A100FF]  from-[#21005E] text-transparent bg-clip-text">
+          <div
+            className="col-start-3 col-end-10 text-transparent bg-clip-text"
+            style={{
+              backgroundImage:
+                "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+            }}
+          >
             EXCEL AT
           </div>
-        </div>
+        </h1>
         <div className="flex justify-between w-full p-4 md:p-8 xl:px-16 pb-20  sm:p-20">
           <p className="text-[#21005E] max-w-[35%]">
             Out staffing of IT-specialists, strengthening teams and projects
@@ -30,7 +42,7 @@ const WorkPage = () => {
             <CTAButton floatingImageUrl="/images/booked_fast.svg" />
           </div>
         </div>
-      </main>
+      
 
       <div className="grid grid-cols-3 grid-rows-2 grid-flow-col gap-4 overflow-x-auto md:grid-cols-2 mx-auto md:max-w-fit min-w-max px-4 md:h-[530px]">
         <div className="md:row-start-1 md:row-end-3 md:col-start-1 md:col-end-2">
@@ -63,6 +75,7 @@ const WorkPage = () => {
           />
         </div>
       </div>
+      </main>
     </div>
   );
 };

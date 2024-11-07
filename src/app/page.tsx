@@ -3,6 +3,8 @@ import ContactForm from "@/app/sections/ContactForm";
 import Image from "next/image";
 import FeaturedProjects from "./sections/FeaturedProjects";
 import Hero from "./sections/Hero";
+import Services from "./sections/Services";
+import Testimonials from "./sections/Testimonials";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <div className="w-full">
         <Hero />
         <FeaturedProjects />
+        <Services />
+        <Testimonials />
         <ContactForm />
       </div>
     </main>
