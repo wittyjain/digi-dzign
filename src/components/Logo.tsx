@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface LogoProps {
-  variant: 'default' | 'white';
+  variant?: 'default' | 'white';
 }
 
 const Logo = ({variant = 'default'}: LogoProps) => {

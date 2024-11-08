@@ -296,7 +296,7 @@ export default function Component() {
           <p className="text-[#D9D8DD] text-lg">or</p>
           <div className="bg-[#D9D8DD] h-px grow ml-2 mr-2 lg:mr-20 lg:ml-4 m-auto" />
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between max-w-4xl mx-auto p-6 gap-16 border rounded-xl lg:rounded-full bg-white">
+        <div className="bg-contact-button bg-contain bg-right bg-no-repeat flex flex-col md:flex-row items-center justify-between max-w-4xl mx-auto p-6 gap-16 border rounded-xl lg:rounded-full bg-white">
           <div className="flex justify-center items-center gap-6 flex-wrap">
             <div className="relative h-24 w-24 min-w-fit">
               {/* Bottom left avatar */}

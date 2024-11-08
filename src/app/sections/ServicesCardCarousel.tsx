@@ -61,10 +61,10 @@ const ServicesCardCarousel = () => {
   return (
     <>
       {organizedItems.map((column, colIndex) => (
-        <div
+        <CarouselItem
           key={colIndex}
-          className={`space-y-4 min-h-96 flex flex-col ${
-            colIndex % 2 === 0 ? "col-span-4" : "col-span-2"
+          className={`space-y-4 min-h-96 flex flex-col w-fit ${
+            colIndex % 2 === 0 ? "lg:basis-2/3" : "lg:basis-1/3"
           }`}
         >
           {column.map((item, index) => (
@@ -72,7 +72,7 @@ const ServicesCardCarousel = () => {
               {colIndex % 2 === 0 ? (
                 <div
                   key={index}
-                  className={`rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
+                  className={`w-full rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
                 >
                     <div className={`max-w-[40%] ${item.textPosition}`}>
                         <h3 className="text-lg font-semibold text-white">
@@ -84,7 +84,7 @@ const ServicesCardCarousel = () => {
               ) : (
                 <div
                   key={index}
-                  className={`rounded-3xl p-4 grow ${item.bg}`}
+                  className={`rounded-3xl w-full p-4 grow ${item.bg}`}
                 >
                   <h3 className="text-lg font-semibold text-white">
                     {item.title}
@@ -94,7 +94,7 @@ const ServicesCardCarousel = () => {
               )}
             </>
           ))}
-        </div>
+        </CarouselItem>
       ))}
     </>
   );

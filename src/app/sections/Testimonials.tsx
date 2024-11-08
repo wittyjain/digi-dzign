@@ -9,7 +9,7 @@ import React from "react";
 
 const Testimonials = () => {
   return (
-    <div className="bg-[#0A0219] px-16 py-24 bg-testimonials bg-cover bg-no-repeat">
+    <div className="bg-[#0A0219] py-8 px-4 lg:px-12 xl:px-16 lg:py-20 xl:py-24 bg-testimonials bg-cover bg-no-repeat">
       <div>
         <h2 className="text-white text-5xl md:text-6xl lg:text-8xl font-semibold">
           WE GET THINGS
@@ -28,8 +28,8 @@ const Testimonials = () => {
           </p>
         </div>
       </div>
-      <div className="p-4 md:p-8 lg:p-16 rounded-xl bg-white">
-        <div className="flex justify-between items-center">
+      <div className="py-4 md:py-8 lg:py-16 rounded-xl bg-white">
+        <div className="flex justify-between items-center px-4 md:px-8 lg:px-16">
           <h2 className="text-5xl md:text-6xl lg:text-8xl font-semibold">
             WORD'S ON <br />
             <span className="text-[#A100FF]">THE STREET</span>
@@ -47,9 +47,10 @@ const Testimonials = () => {
             align: "start",
             loop: false,
           }}
-        >
-          <CarouselContent>
-            <CarouselItem className="w-fit max-w-[40%]">
+          >
+          <CarouselContent className="px-4 md:px-8 lg:px-16">
+            {[1,2,3].map((_, index) => (
+            <CarouselItem key={index} className="lg:w-fit lg:max-w-[40%]">
               <div
                 className="rounded-3xl flex flex-col border p-6 space-y-12"
                 style={{
@@ -83,74 +84,7 @@ const Testimonials = () => {
                 </div>
               </div>
             </CarouselItem>
-            <CarouselItem className="w-fit max-w-[40%]">
-              <div
-                className="rounded-3xl flex flex-col border p-6 space-y-12"
-                style={{
-                  borderWidth: "2px",
-                  borderStyle: "solid",
-                  borderColor: "#0C03AD",
-                  //   borderImageSource:
-                  //     "linear-gradient(90deg, #0C03AD 0%, #050337 100%)",
-                }}
-              >
-                <Avatar className="size-24">
-                  <AvatarImage
-                    width={100}
-                    height={100}
-                    src="/images/avatar1.png"
-                    alt="Avatar 2"
-                  />
-                </Avatar>
-                <p className="text-[#002755] text-2xl leading-10">
-                  “We knew we had room for overall process improvement and
-                  greater efficiency. With Skedulo we’ve improved utilization
-                  and reduced costs significantly.”
-                </p>
-                <div>
-                  <div className="text-[#002755] text-2xl font-semibold">
-                    Asya Rudikoff
-                  </div>
-                  <div className="text-[#424242] text-lg">
-                    Manager of Physical and Occupational Therapy
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-            <CarouselItem className="w-fit max-w-[40%]">
-              <div
-                className="rounded-3xl flex flex-col border p-6 space-y-12"
-                style={{
-                  borderWidth: "2px",
-                  borderStyle: "solid",
-                  borderColor: "#0C03AD",
-                  //   borderImageSource:
-                  //     "linear-gradient(90deg, #0C03AD 0%, #050337 100%)",
-                }}
-              >
-                <Avatar className="size-24">
-                  <AvatarImage
-                    width={100}
-                    height={100}
-                    src="/images/avatar1.png"
-                    alt="Avatar 2"
-                  />
-                </Avatar>
-                <p className="text-[#002755] text-2xl leading-10">
-                  “We knew we had room for overall process improvement and
-                  greater efficiency. With Skedulo we’ve improved utilization
-                  and reduced costs significantly.”
-                </p>
-                <div>
-                  <div className="text-[#002755] text-2xl font-semibold">
-                    Asya Rudikoff
-                  </div>
-                  <div className="text-[#424242] text-lg">
-                    Manager of Physical and Occupational Therapy
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
+            ))}
           </CarouselContent>
         </Carousel>
       </div>
