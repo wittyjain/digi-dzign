@@ -8,7 +8,7 @@ import ServiceBadge from "@/components/ServiceBadge";
 
 export default function ServicesShowcase() {
   return (
-    <div className="min-h-screen px-8 py-24">
+    <div className="min-h-screen py-24">
       <div className="max-w-[1400px] mx-auto ">
         {/* ALL SERVICES Header */}
         <h1 className="text-[#21005E] text-sm font-normal tracking-wider border-l-4 border-[#A100FF] pl-5 w-1/2">
@@ -31,7 +31,7 @@ export default function ServicesShowcase() {
                 height={320}
               />
             </div>
-            <div className=" px-6 py-4 col-start-6 col-span-7	">
+            <div className="py-4 col-start-7 col-span-6	">
               <div className="flex flex-wrap justify-start items-center gap-1 max-w- mx-auto">
                 {servicesList.map((service, index) => {
                   // Calculate column span based on service name length
@@ -65,7 +65,7 @@ export default function ServicesShowcase() {
                 height={320}
               />
             </div>
-            <div className=" px-6 py-4 col-start-6 col-span-7	">
+            <div className="py-4 col-start-7 col-span-6	">
               <div className="flex flex-wrap justify-start gap-1 max-w- mx-auto">
                 {appServices.map((service, index) => {
                   // Calculate column span based on service name length
@@ -99,7 +99,7 @@ export default function ServicesShowcase() {
                 height={320}
               />
             </div>
-            <div className=" px-6 py-4 col-start-6 col-span-7	">
+            <div className="py-4 col-start-7 col-span-6	">
               <div className="flex flex-wrap justify-start gap-1 max-w- mx-auto">
                 {brandingServices.map((service, index) => {
                   // Calculate column span based on service name length
@@ -133,7 +133,7 @@ export default function ServicesShowcase() {
                 height={320}
               />
             </div>
-            <div className=" px-6 py-4 col-start-6 col-span-7	">
+            <div className="py-4 col-start-7 col-span-6	">
               <div className="flex flex-wrap justify-start gap-1  mx-auto">
                 {consultingServices.map((service, index) => {
                   // Calculate column span based on service name length

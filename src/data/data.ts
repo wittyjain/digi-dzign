@@ -1,3 +1,6 @@
+import { icons } from "lucide-react";
+
+//Service Data
 export interface ServiceCategory {
   name: string;
   icon?: string;
@@ -155,3 +158,70 @@ export const consultingServices: ServiceCategory[] = [
     icon: "/icons/workflow-automation.svg",
   },
 ];
+
+// Insights Data
+
+export interface Resource {
+  label: string;
+  href: string;
+  icon: string;
+}
+
+export const resourcesList: Resource[] = [
+  { label: "ALL", href: "#", icon: "/icons/all-icon.svg" },
+  { label: "BLOG", href: "#", icon: "/icons/blog-icon.svg" },
+  { label: "WEBINARS", href: "#", icon: "/icons/webinar-icon.svg" },
+  { label: "GUIDES", href: "#", icon: "/icons/guides-icon.svg" },
+  { label: "RESEARCH", href: "#", icon: "/icons/research-icon.svg" },
+];
+
+export interface Topic {
+  label: string;
+  count: number;
+  featured?: boolean;
+}
+
+export const topicsList: Topic[] = [
+  { label: "SEE ALL", count: 100, featured: true },
+  { label: "SEARCH", count: 1200 },
+  { label: "ARTIFICIAL INTELLIGENCE (AI)", count: 145 },
+  { label: "BLOGGING", count: 120 },
+  { label: "CRM", count: 86 },
+  { label: "CASE STUDIES", count: 50 },
+  { label: "E-COMMERCE", count: 325 },
+];
+
+export interface FeaturedContent {
+  category: string;
+  title: string;
+  author: string;
+  readTime: string;
+  imageUrl: string;
+  icon: string;
+}
+
+export const featuredContent: FeaturedContent = {
+  category: "BLOGGING",
+  title:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  author: "Digidziga",
+  readTime: "8m read",
+  imageUrl: "/images/insights/feature-image.jpg",
+  icon: "/images/insights/digi-arrow.svg",
+};
+
+export interface LatestContentSection {
+  imageUrl: string;
+  author: string;
+  readTime: string;
+  title: string;
+  icon: string;
+}
+
+export const latestContentList: LatestContentSection[] = Array(6).fill({
+  imageUrl: "/images/insights/content-image.jpg",
+  author: "Digidziga",
+  readTime: "8m read",
+  title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+  icon: "/images/insights/digi-arrow.svg",
+});

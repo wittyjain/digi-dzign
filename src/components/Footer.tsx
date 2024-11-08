@@ -5,22 +5,28 @@ import HamburgerIcon from "@/assets/icons/hamburger.svg";
 import Logo from "./Logo";
 import CTAButton from "./CTAButton";
 import { Input } from "./ui/input";
+import Link from "next/link";
 
 interface FooterProps {}
 
 const footerMenus = [
   {
     title: "Company",
-    items: ["Home", "Work", "Why DIGIDZIGN", "Insights"],
+    items: [
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/services" },
+      { name: "Why DIGIDZIGN", path: "#" },
+      { name: "Insights", path: "/insights" },
+    ],
   },
   {
     title: "Services",
     items: [
-      "Web Services",
-      "App Design",
-      "Branding & Digital Marketing",
-      "Illustrations & Motion",
-      "Consulting",
+      { name: "Web Services", path: "#" },
+      { name: "App Design", path: "#" },
+      { name: "Branding & Digital Marketing", path: "#" },
+      { name: "Illustrations & Motion", path: "#" },
+      { name: "Consulting", path: "#" },
     ],
   },
 ];
@@ -80,8 +86,10 @@ const Footer = ({}: FooterProps) => {
                   {menu.title}
                 </div>
                 {menu.items.map((item) => (
-                  <li key={item} className="font-light text-xl mb-2">
-                    {item}
+                  <li key={item.name} className="font-light text-xl mb-2">
+                    <Link href={item.path} className="hover:underline">
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -137,7 +145,9 @@ const Footer = ({}: FooterProps) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end text-[#ACACAC] mt-4">&copy; {new Date().getFullYear()} DigiDzign</div>
+      <div className="flex justify-end text-[#ACACAC] mt-4">
+        &copy; {new Date().getFullYear()} DigiDzign
+      </div>
     </footer>
   );
 };
