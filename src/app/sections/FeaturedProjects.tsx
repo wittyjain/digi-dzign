@@ -74,7 +74,7 @@ export default function FeaturedProjects() {
               variant="outline"
               className="hidden md:flex items-center gap-2 bg-white text-black hover:bg-white/90 rounded-xl px-6 py-6"
             >
-              VIEW ALL SERVICES
+              VIEW ALL PROJECTS
               <Image
                 src={"/icons/right-arrow.svg"}
                 alt={"right arrow"}
