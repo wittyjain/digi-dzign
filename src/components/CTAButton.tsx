@@ -22,7 +22,7 @@ export default function CTAButton({
   ];
   return (
     <>
-      <div className="relative w-fit">
+      <div className="relative md:w-fit w-full">
         <Button
           className={`relative h-auto p-0 overflow-hidden rounded-2xl w-full md:w-fit ${className}`}
           style={{
@@ -34,7 +34,9 @@ export default function CTAButton({
           {...props}
         >
           <div className="w-full md:w-fit relative flex items-center justify-between gap-4 px-12 md:px-6 py-3">
-            <span className="font-semibold text-lg text-[#21005E]">{children}</span>
+            <span className="font-semibold text-lg text-[#21005E]">
+              {children}
+            </span>
             <div className="flex -space-x-2">
               {[...Array(circleCount)].map((_, index) => (
                 <Avatar key={index} className="border-2 border-white w-10 h-10">
@@ -50,7 +52,12 @@ export default function CTAButton({
           </div>
         </Button>
         <div className="absolute -bottom-12 -right-0 lg:-bottom-0 lg:-right-40">
-          <Image src={floatingImageUrl} alt={"partner with us"} width="150" height="40" />
+          <Image
+            src={floatingImageUrl}
+            alt={"partner with us"}
+            width="150"
+            height="40"
+          />
         </div>
       </div>
     </>
