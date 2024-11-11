@@ -64,11 +64,41 @@ const config: Config = {
         "contact-form-bg": "url('/images/contact-form-bg.svg')",
         "featured-projects": "url('/images/featured-projects-bg.png')",
         "web-services": "url('/images/work/web-services.png')",
-        "testimonials": "url('/images/testimonials-bg.svg')",
+        "app-design":
+          "url('/images/work/app-design.png'), linear-gradient(90deg, #0C03AD 0%, #050337 100%)",
+        "business-consulting":
+          "url('/images/work/business-consulting.png'), linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+        "digital-marketing":
+          "url('/images/work/digital-marketing.png'), linear-gradient(90deg, #0C03AD 0%, #050337 100%)",
+        testimonials: "url('/images/testimonials-bg.svg')",
         "contact-button": "url('/images/contact-button-bg.svg')",
+      },
+      extend: {
+        rotate: {
+          "y-180": "180deg",
+        },
+        perspective: {
+          "1000": "1000px",
+        },
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".backface-hidden": {
+          "backface-visibility": "hidden",
+        },
+        ".transform-style-3d": {
+          "transform-style": "preserve-3d",
+        },
+        ".rotate-y-180": {
+          transform: "rotateY(180deg)",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };
 export default config;

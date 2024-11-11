@@ -31,7 +31,7 @@ export default function insights() {
           {/* <p className="text-[#21005E] max-w-[35%]">
           Out staffing of IT-specialists, strengthening teams and projects
         </p> */}
-          <div className="min-w-[30%]">
+          <div className="min-w-[40%]">
             <CTAButton floatingImageUrl="/images/booked_fast.svg" />
           </div>
         </div>

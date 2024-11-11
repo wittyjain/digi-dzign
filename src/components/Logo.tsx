@@ -1,24 +1,25 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface LogoProps {
-  variant?: 'default' | 'white';
+  variant?: "default" | "white";
 }
 
-const Logo = ({variant = 'default'}: LogoProps) => {
+const Logo = ({ variant = "default" }: LogoProps) => {
   const logoMap = {
-    default: '/logo.svg',
-    white: '/logo-white.svg',
+    default: "/logo.svg",
+    white: "/logo-white.svg",
   };
 
   return (
-    <div>
+    <Link href="/">
       <Image
         src={logoMap[variant]}
         alt={"Digi Dzign Logo"}
         width={50}
         height={70}
       ></Image>
-    </div>
+    </Link>
   );
 };
 

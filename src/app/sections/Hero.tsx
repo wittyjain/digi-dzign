@@ -3,7 +3,7 @@ import React from "react";
 
 const Hero = () => {
   const afterElement =
-    "after:block after:w-[680px] after:h-[680px] after:bg-hero-cube after:bg-cover after:bg-no-repeat after:absolute after:-bottom-72 after:right-[92px] after:mix-blend-luminosity";
+    "after:block after:w-[240px] after:h-[240px] lg:after:w-[680px] lg:after:h-[680px] after:bg-hero-cube after:bg-cover after:bg-no-repeat after:absolute after:-bottom-72 after:right-[92px] after:mix-blend-luminosity";
 
   return (
     <div className="w-full grid grid-cols-12 p-4 md:p-8 xl:p-16 pb-20 gap-8 sm:p-20">
@@ -17,10 +17,10 @@ const Hero = () => {
         <div className="col-start-1">AGENCY</div>
       </h1>
       <div className="col-span-12 flex justify-end md:justify-between items-start flex-wrap">
-        <p className="text-[#21005E] max-w-[30%]">
+        <p className="text-[#21005E] max-w-[30%] text-xl lg:text-2xl xl:text-3xl">
           Out staffing of IT-specialists, strengthening teams and projects
         </p>
-        <div className="w-full md:w-fit lg:min-w-[30%]">
+        <div className="w-full md:w-fit lg:min-w-[40%]">
           <CTAButton floatingImageUrl="/images/booked_fast.svg" />
         </div>
       </div>
