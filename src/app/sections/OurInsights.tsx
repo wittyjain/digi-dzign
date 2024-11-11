@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 
 const insights = [
@@ -60,7 +61,7 @@ export default function OurInsights() {
     <div className="bg-[#0A0219] px-4 py-12 md:p-8 lg:px-16 lg:py-20 lg:pt-28">
       {/* Hero Section */}
       <section className="mx-auto py-8 px-4 leading-[60px] lg:py-20 lg:px-16">
-        <h2 className="text-white text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[60px] lg:leading-[120px] w-fit mx-auto">
+        <h2 className="text-white text-3xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold leading-[60px] lg:leading-[120px] w-fit mx-auto">
           <span className="text-[#3A47F4] lg:leading-[120px]">
             CREATIVE DESIGN
           </span>{" "}
@@ -81,7 +82,7 @@ export default function OurInsights() {
           </span>
         </h2>
         <div className="mt-8 lg:mt-24 flex justify-end w-full">
-          <div className="w-full lg:mr-40 md:w-fit lg:min-w-[30%]">
+          <div className="w-full lg:mr-40 md:w-fit lg:min-w-[40%]">
             <CTAButton floatingImageUrl="/images/booked_fast.svg" />
           </div>
         </div>
@@ -105,9 +106,9 @@ export default function OurInsights() {
                   <span className="text-[#3A47F4]">INSIGHTS</span>
                 </h2>
                 <div className="hidden md:flex justify-center items-center space-x-20">
-                  <Button
-                    variant="outline"
-                    className="hidden md:flex items-center gap-2 bg-white border border-[#A300FF] text-[#A300FF] hover:bg-white/90 rounded-xl px-6 py-6"
+                  <Link
+                    href="/insights"
+                    className="hidden md:flex items-center gap-2 bg-white border border-[#A300FF] text-[#A300FF] hover:bg-white/90 rounded-xl px-6 py-4"
                   >
                     VIEW ALL INSIGHTS
                     <span
@@ -125,7 +126,7 @@ export default function OurInsights() {
                         className="invert"
                       />
                     </span>
-                  </Button>
+                  </Link>
                   <div className="w-0.5 h-12 bg-[#644D8E]"></div>
                   <div className="flex gap-2">
                     <CarouselPrevious
@@ -139,7 +140,7 @@ export default function OurInsights() {
               </div>
             </div>
             <div className="w-full grid grid-cols-1 gap-8">
-              <CarouselContent className="px-4 lg:px-8 xl:px-12 -ml-2 md:-ml-4 gap-x-2">
+              <CarouselContent className="px-4 lg:px-8 xl:px-12 -ml-2 md:-ml-4 gap-x-6">
                 {insights.map((insight, index) => (
                   <CarouselItem
                     key={index}

@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
-import AudioWaveIcon from "@/assets/icons/Audio_wave.svg";
-import HamburgerIcon from "@/assets/icons/hamburger.svg";
 import Logo from "./Logo";
 import CTAButton from "./CTAButton";
 import { Input } from "./ui/input";

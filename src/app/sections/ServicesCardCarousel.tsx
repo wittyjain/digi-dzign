@@ -9,28 +9,36 @@ const carouselItems = [
       "Your landing page is the first thing your customers, investors, and partners see.",
     image: "path/to/web-services-image.png",
     bg: "bg-web-services bg-cover bg-no-repeat mix-blend-luminosity",
-    textPosition: "translate-x-1/2 translate-y-1/2"
+    textPosition: "translate-x-1/2 translate-y-1/2",
   },
   {
     title: "App Design",
     description:
       "User experience makes all the difference between good products and great ones.",
     image: "path/to/app-design-image.png",
-    bg: "bg-web-services bg-cover bg-no-repeat",
-  },
-  {
-    title: "Digital Marketing",
-    description:
-      "User experience makes all the difference between good products and great ones.",
-    image: "path/to/digital-marketing-image.png",
-    bg: "bg-web-services bg-cover bg-no-repeat",
+    bg: "bg-app-design bg-cover bg-no-repeat",
+    textPosition: "-translate-x-1/2",
+    // style: { background: "linear-gradient(90deg, #0C03AD 0%, #050337 100%)" },
   },
   {
     title: "Business Consulting",
     description:
       "AI, LLMs, NLP: Unlocking the future of intelligent interaction and language processing.",
     image: "path/to/business-consulting-image.png",
-    bg: "bg-web-services bg-cover bg-no-repeat",
+    bg: "bg-business-consulting bg-contain bg-left bg-no-repeat",
+    textPosition: "translate-x-1/2",
+    // style: {
+    //   background: "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+    // },
+  },
+  {
+    title: "Digital Marketing",
+    description:
+      "User experience makes all the difference between good products and great ones.",
+    image: "path/to/digital-marketing-image.png",
+    bg: "bg-digital-marketing bg-cover bg-no-repeat",
+    textPosition: "-translate-x-1/2 -translate-y-1/2",
+    // style: { background: "linear-gradient(90deg, #0C03AD 0%, #050337 100%)" },
   },
 ];
 
@@ -72,24 +80,26 @@ const ServicesCardCarousel = () => {
               {colIndex % 2 === 0 ? (
                 <div
                   key={index}
-                  className={`w-full rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
+                  className={`cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
                 >
-                    <div className={`max-w-[40%] ${item.textPosition}`}>
-                        <h3 className="text-lg font-semibold text-white">
-                            {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-300">{item.description}</p>
-                    </div>
+                  <div className={`max-w-[40%] ${item.textPosition}`}>
+                    <h3 className="text-lg font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-300">{item.description}</p>
+                  </div>
                 </div>
               ) : (
                 <div
                   key={index}
-                  className={`rounded-3xl w-full p-4 grow ${item.bg}`}
+                  className={`cursor-pointer rounded-3xl w-full p-4 grow flex justify-center items-center ${item.bg}`}
                 >
-                  <h3 className="text-lg font-semibold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-300">{item.description}</p>
+                  <div className={`max-w-[40%] ${item.textPosition}`}>
+                    <h3 className="text-lg font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-300">{item.description}</p>
+                  </div>
                 </div>
               )}
             </>

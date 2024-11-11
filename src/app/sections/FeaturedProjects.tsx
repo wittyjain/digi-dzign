@@ -65,27 +65,29 @@ export default function FeaturedProjects() {
       >
         <div className="mb-16">
           <div className="flex items-center justify-between mb-12">
-            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold">
+            <h1 className="text-5xl md:text-7xl xl:text-9xl font-bold">
               <span className="text-white">FEATURED</span>
               <br />
               <span className="text-[#3A47F4]">PROJECTS</span>
             </h1>
-            <Button
-              variant="outline"
-              className="hidden md:flex items-center gap-2 bg-white text-black hover:bg-white/90 rounded-xl px-6 py-6"
-            >
-              VIEW ALL PROJECTS
-              <Image
-                src={"/icons/right-arrow.svg"}
-                alt={"right arrow"}
-                width={25}
-                height={25}
-              />
-            </Button>
-            <div className="w-0.5 h-12 bg-[#644D8E]"></div>
-            <div className="flex gap-2">
-              <CarouselPrevious className={`relative static translate-y-0`} />
-              <CarouselNext className={`relative static translate-y-0`} />
+            <div className="hidden lg:flex lg:gap-x-12">
+              <Button
+                variant="outline"
+                className="hidden md:flex items-center gap-2 bg-white text-black hover:bg-white/90 rounded-xl px-6 py-6"
+              >
+                VIEW ALL PROJECTS
+                <Image
+                  src={"/icons/right-arrow.svg"}
+                  alt={"right arrow"}
+                  width={25}
+                  height={25}
+                />
+              </Button>
+              <div className="w-0.5 h-12 bg-[#644D8E]"></div>
+              <div className="flex gap-2">
+                <CarouselPrevious className={`static translate-y-0`} />
+                <CarouselNext className={`static translate-y-0`} />
+              </div>
             </div>
           </div>
           <div className="flex gap-3 overflow-x-auto pb-4 md:pb-0 scrollbar-hide">

@@ -8,6 +8,7 @@ import {
   Linkedin,
   MapPin,
   ArrowRight,
+  PlusIcon,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Logo from "./Logo";
 import AudioWaveIcon from "@/assets/icons/Audio_wave.svg";
+import { cn } from "@/lib/utils";
 
 const menuAnimationKeyframes = `
   @keyframes menuSlideDown {
@@ -55,6 +57,33 @@ interface OverlayMenuProps {
   onClose: () => void;
 }
 
+const navData = [
+  {
+    id: 1,
+    name: "WORK",
+    url: "/work",
+    options: [],
+  },
+  {
+    id: 2,
+    name: "SERVICES",
+    url: "/services",
+    options: [],
+  },
+  {
+    id: 3,
+    name: "WHY  DIGIDZIGN",
+    url: "/why-digidzign",
+    options: [],
+  },
+  {
+    id: 4,
+    name: "INSIGHTS",
+    url: "/insights",
+    options: [],
+  },
+];
+
 export default function NavMenu({ isOpen, onClose }: OverlayMenuProps) {
   const [email, setEmail] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
@@ -92,7 +121,7 @@ export default function NavMenu({ isOpen, onClose }: OverlayMenuProps) {
             "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
         }}
       >
-        <div className="container mx-auto px-6 py-8">
+        <div className="mx-auto px-16 py-8">
           <div className="flex justify-between items-start">
             <div className="text-white text-2xl font-bold">
               <Logo variant="white" />
@@ -103,18 +132,20 @@ export default function NavMenu({ isOpen, onClose }: OverlayMenuProps) {
                 className="hidden md:inline-flex rounded-3xl border-primary px-[10px]"
               >
                 <Image
-                  src={AudioWaveIcon}
+                  src={"/icons/audio_wave.svg"}
                   alt={""}
                   width={24}
                   height={5}
                 ></Image>
               </Button>
-              <Button
-                variant="outline"
-                className="text-[#A100FF] hover:text-opacity/80"
-              >
-                CONTACT US
-              </Button>
+              <Link href={"/contact-us"}>
+                <Button
+                  variant="outline"
+                  className="text-[#A100FF] hover:text-opacity/80"
+                >
+                  CONTACT US
+                </Button>
+              </Link>
               <Button
                 variant="ghost"
                 size="icon"
@@ -130,86 +161,101 @@ export default function NavMenu({ isOpen, onClose }: OverlayMenuProps) {
               </Button>
             </div>
           </div>
-
-          <nav className="mt-20">
-            <ul className="space-y-8">
-              {["WORK", "SERVICES", "WHY DIGIDZIGN", "INSIGHTS"].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="#"
-                    className="text-white text-5xl font-bold hover:text-white/80 transition-colors"
+          <div className="flex justify-between gap-x-20">
+            <nav className="mt-20 grow">
+              <ul className="space-y-8">
+                {navData.map((item) => (
+                  <li
+                    key={item.id}
+                    className={cn(
+                      "group py-6 border-b border-[#520BD4] flex justify-between items-center pr-8"
+                    )}
                   >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="fixed bottom-0 right-0 p-8 w-full md:w-auto">
-            <div className="flex flex-col items-start gap-8">
-              <div className="text-white grid gap-8">
-                <div className="mb-4">
-                  <div className="text-[#B73DFE] text-lg mb-2">
-                    WORKING WORLDWIDE
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-6 w-6" />
-                    <span className="text-base">MIAMI</span>
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <Link
-                    href="tel:(310)999-999"
-                    className="block hover:text-[#B73DFE] text-sm font-light underline"
-                  >
-                    (310) 999-999
-                  </Link>
-                  <Link
-                    href="mailto:example@gmail.com"
-                    className="block hover:text-[#B73DFE] text-sm font-light underline"
-                  >
-                    example@gmail.com
-                  </Link>
-                </div>
-                <div className="flex gap-4 mt-4">
-                  <Link href="#" className="text-white hover:text-[#B73DFE]">
-                    <Facebook className="h-5 w-5" />
-                  </Link>
-                  <Link href="#" className="text-white hover:text-[#B73DFE]">
-                    <Instagram className="h-5 w-5" />
-                  </Link>
-                  <Link href="#" className="text-white hover:text-[#B73DFE]">
-                    <Linkedin className="h-5 w-5" />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="text-white">
-                <div className="text-[#B73DFE] mb-4">
-                  SUBSCRIBE TO OUR NEWSLETTER
-                </div>
-                <form onSubmit={handleSubmit} className="relative">
-                  <Input
-                    type="email"
-                    placeholder="Your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 rounded-xl bg-white focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-[#21005E]"
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:text-primary transition-colors"
-                    aria-label="Submit email"
-                  >
-                    <Image
-                      src={"/icons/right-arrow.svg"}
-                      alt={"right arrow"}
-                      width={25}
-                      height={25}
+                    <Link
+                      href={item.url}
+                      onClick={() => onClose()}
+                      className={cn(
+                        "text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold",
+                        "hover:text-white/80 transition-colors"
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                    <PlusIcon
+                      className="hidden text-white group-hover:inline-block transition-opacity ease-out hover:cursor-pointer"
+                      width={"30px"}
+                      height={"30px"}
                     />
-                  </button>
-                </form>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="w-fit flex justify-end items-end">
+              <div className="flex flex-col items-start gap-8">
+                <div className="text-white grid gap-8">
+                  <div className="mb-4">
+                    <div className="text-[#B73DFE] text-lg mb-2">
+                      WORKING WORLDWIDE
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-6 w-6" />
+                      <span className="text-base">MIAMI</span>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <Link
+                      href="tel:(310)999-999"
+                      className="block hover:text-[#B73DFE] text-sm font-light underline"
+                    >
+                      (310) 999-999
+                    </Link>
+                    <Link
+                      href="mailto:example@gmail.com"
+                      className="block hover:text-[#B73DFE] text-sm font-light underline"
+                    >
+                      example@gmail.com
+                    </Link>
+                  </div>
+                  <div className="flex gap-4 mt-4">
+                    <Link href="#" className="text-white hover:text-[#B73DFE]">
+                      <Facebook className="h-5 w-5" />
+                    </Link>
+                    <Link href="#" className="text-white hover:text-[#B73DFE]">
+                      <Instagram className="h-5 w-5" />
+                    </Link>
+                    <Link href="#" className="text-white hover:text-[#B73DFE]">
+                      <Linkedin className="h-5 w-5" />
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="text-white">
+                  <div className="text-[#B73DFE] mb-4">
+                    SUBSCRIBE TO OUR NEWSLETTER
+                  </div>
+                  <form onSubmit={handleSubmit} className="relative">
+                    <Input
+                      type="email"
+                      placeholder="Your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="px-4 rounded-xl bg-white focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-[#21005E]"
+                    />
+                    <button
+                      type="submit"
+                      className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:text-primary transition-colors"
+                      aria-label="Submit email"
+                    >
+                      <Image
+                        src={"/icons/right-arrow.svg"}
+                        alt={"right arrow"}
+                        width={25}
+                        height={25}
+                      />
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

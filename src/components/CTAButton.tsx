@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import type { ButtonProps } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CTAButtonProps extends ButtonProps {
   circleCount?: number;
@@ -23,34 +24,39 @@ export default function CTAButton({
   return (
     <>
       <div className="relative md:w-fit w-full">
-        <Button
-          className={`relative h-auto p-0 overflow-hidden rounded-2xl w-full md:w-fit ${className}`}
-          style={{
-            background: `
-                linear-gradient(81.55deg, #DBEF33 12.1%, #60EA5B 65.02%, #32E2CF 101.37%)
-                `,
-            backgroundBlendMode: "overlay",
-          }}
-          {...props}
-        >
-          <div className="w-full md:w-fit relative flex items-center justify-between gap-4 px-12 md:px-6 py-3">
-            <span className="font-semibold text-lg text-[#21005E]">
-              {children}
-            </span>
-            <div className="flex -space-x-2">
-              {[...Array(circleCount)].map((_, index) => (
-                <Avatar key={index} className="border-2 border-white w-10 h-10">
-                  <Image
-                    src={avatars[index]}
-                    alt={`Team member ${index + 1}`}
-                    width={40}
-                    height={40}
-                  />
-                </Avatar>
-              ))}
+        <Link href={"/request-a-quote"}>
+          <Button
+            className={`relative h-auto p-0 overflow-hidden rounded-2xl w-full md:w-fit ${className}`}
+            style={{
+              background: `
+                  linear-gradient(81.55deg, #DBEF33 12.1%, #60EA5B 65.02%, #32E2CF 101.37%)
+                  `,
+              backgroundBlendMode: "overlay",
+            }}
+            {...props}
+          >
+            <div className="w-full md:w-fit relative flex items-center justify-between gap-4 px-12 md:px-6 py-3">
+              <span className="font-semibold text-lg text-[#21005E]">
+                {children}
+              </span>
+              <div className="flex -space-x-2">
+                {[...Array(circleCount)].map((_, index) => (
+                  <Avatar
+                    key={index}
+                    className="border-2 border-white w-10 h-10"
+                  >
+                    <Image
+                      src={avatars[index]}
+                      alt={`Team member ${index + 1}`}
+                      width={40}
+                      height={40}
+                    />
+                  </Avatar>
+                ))}
+              </div>
             </div>
-          </div>
-        </Button>
+          </Button>
+        </Link>
         <div className="absolute -bottom-12 -right-0 lg:-bottom-0 lg:-right-40">
           <Image
             src={floatingImageUrl}

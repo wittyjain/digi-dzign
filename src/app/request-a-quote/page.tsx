@@ -27,7 +27,7 @@ export default function RequestQuote() {
           <div className=" col-start-5 col-span-12 row-start-5 row-span-3  text-[#21005E] bg-clip-text uppercase">
             one roof
           </div>
-          <div className="col-span-3 md:col-start-9 justify-end items-end row-start-7 row-span-3 w-full md:w-fit lg:min-w-[30%]">
+          <div className="col-span-3 md:col-start-9 justify-end items-end row-start-7 row-span-3 w-full md:w-fit lg:min-w-[40%]">
             <CTAButton floatingImageUrl="/images/booked_fast.svg" />
           </div>
         </div>
