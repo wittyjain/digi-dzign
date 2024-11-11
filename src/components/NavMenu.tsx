@@ -132,7 +132,7 @@ export default function NavMenu({ isOpen, onClose }: OverlayMenuProps) {
                 className="hidden md:inline-flex rounded-3xl border-primary px-[10px]"
               >
                 <Image
-                  src={AudioWaveIcon}
+                  src={"/icons/audio_wave.svg"}
                   alt={""}
                   width={24}
                   height={5}

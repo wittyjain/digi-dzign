@@ -24,15 +24,27 @@ const Header = ({}: HeaderProps) => {
           variant="outline"
           className="hidden md:inline-flex rounded-3xl border-primary px-[10px]"
         >
-          <Image src={AudioWaveIcon} alt={""} width={24} height={5}></Image>
+          <Image
+            src={"/icons/audio_wave.svg"}
+            alt={"turn on audio"}
+            width={24}
+            height={5}
+          ></Image>
         </Button>
-        <Link href="/contact-us" className="hidden md:inline-flex rounded-xl"><Button>GET IN TOUCH</Button></Link>
+        <Link href="/contact-us" className="hidden md:inline-flex rounded-xl">
+          <Button>GET IN TOUCH</Button>
+        </Link>
         <Button
           variant="ghost"
           className="rounded-3xl border-primary px-2"
           onClick={() => setIsMenuOpen(true)}
         >
-          <Image src={HamburgerIcon} alt={""} width={24} height={5}></Image>
+          <Image
+            src={"/icons/hamburger.svg"}
+            alt={""}
+            width={24}
+            height={5}
+          ></Image>
         </Button>
       </div>
       <NavMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />

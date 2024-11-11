@@ -80,7 +80,7 @@ const ServicesCardCarousel = () => {
               {colIndex % 2 === 0 ? (
                 <div
                   key={index}
-                  className={`w-full rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
+                  className={`cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
                 >
                   <div className={`max-w-[40%] ${item.textPosition}`}>
                     <h3 className="text-lg font-semibold text-white">
@@ -92,7 +92,7 @@ const ServicesCardCarousel = () => {
               ) : (
                 <div
                   key={index}
-                  className={`rounded-3xl w-full p-4 grow flex justify-center items-center ${item.bg}`}
+                  className={`cursor-pointer rounded-3xl w-full p-4 grow flex justify-center items-center ${item.bg}`}
                 >
                   <div className={`max-w-[40%] ${item.textPosition}`}>
                     <h3 className="text-lg font-semibold text-white">
