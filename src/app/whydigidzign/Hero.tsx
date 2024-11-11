@@ -5,14 +5,14 @@ import CTAButton from "@/components/CTAButton";
 
 export default function Hero() {
   return (
-    <section>
+    <section className="relative">
       {/* Background container - you can add your background image here */}
-      <div className="absolute top-[-20%] w-[1600px] h-[1800px]  ">
+      <div className="absolute top-[-30%] left-[-10%]   ">
         {/* Background will go here */}
         <Image
-          src={"/images/requestquote/hero-bg.svg"}
+          src={"/images/whydigi/hero-bg.svg"}
           alt={"Dzign bg"}
-          height={1660}
+          height={950}
           width={1450}
           className="mix-blend-luminosity"
         />
@@ -32,13 +32,13 @@ export default function Hero() {
               digidzign
             </div>
             {/* Bottom section with chat button and text */}
-            <div className="row-start-12 md:row-start-3 col-span-12 sm:col-start-9 mt-auto  h-[100px] sm:h-auto ">
+            <div className="row-start-8 md:row-start-3 col-span-12 sm:col-start-9 mt-auto  h-[100px] sm:h-auto ">
               {/* Chat button with avatars */}
-              <div className="w-full sm:w-auto mt-10 md:mt-0  sm:static">
+              <div className="w-full sm:w-auto md:mt-0  sm:static">
                 <CTAButton floatingImageUrl="/images/booked_fast.svg" />
               </div>
             </div>
-            <p className=" text-xl row-start-6 col-start-6 col-span-6 border-l-4 pl-4 border-[#A100FF] ">
+            <p className=" md:text-xl text-lg md:row-start-6 row-start-8 md:col-start-6 col-span-12 border-l-4 pl-4 border-[#A100FF] ">
               Lorem ipsum dolor sit amet consectetur. Tincidunt eu massa ipsum
               egestas. Aliquam viverra arcu arcu mi tempor laoreet. Mattis
               pharetra nulla enim non eget. At elit eget ridiculus at.

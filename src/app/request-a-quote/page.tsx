@@ -10,7 +10,7 @@ export default function RequestQuote() {
       <div className="relative flex flex-col gap-20 items-center mb-8 pb-12 md:py-12  w-full">
         <div className="absolute top-[-4%] left-24 ">
           <Image
-            src={"/images/requestquote/hero-bg.svg"}
+            src={"/imagess/requestquote/hero-bg.svg"}
             alt={"Dzign bg"}
             height={1660}
             width={1450}
