@@ -5,13 +5,15 @@ import { Card } from "@/components/ui/card";
 import { Play, Pause } from "lucide-react";
 import { Avatar, AvatarImage } from "./ui/avatar";
 
+export type MediaType = "image" | "video";
+
 interface TestimonialCardProps {
   name: string;
   title: string;
   quote: string;
   avatar: string;
   media: {
-    type: "image" | "video";
+    type: MediaType;
     src: string;
   };
 }

@@ -1,4 +1,4 @@
-import TestimonialCard, { MediaType } from "@/components/TestimonialCard";
+import TestimonialCard, { type MediaType } from "@/components/TestimonialCard";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   Carousel,
