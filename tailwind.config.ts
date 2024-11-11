@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { PluginAPI, Config } from "tailwindcss/types/config";
 
 const config: Config = {
   darkMode: ["class"],
@@ -85,7 +85,7 @@ const config: Config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    function ({ addUtilities }) {
+    function ({ addUtilities }: { addUtilities: PluginAPI["addUtilities"] }) {
       const newUtilities = {
         ".backface-hidden": {
           "backface-visibility": "hidden",
@@ -97,6 +97,7 @@ const config: Config = {
           transform: "rotateY(180deg)",
         },
       };
+      // @ts-ignore
       addUtilities(newUtilities, ["responsive", "hover"]);
     },
   ],
