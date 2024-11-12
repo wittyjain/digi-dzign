@@ -18,7 +18,7 @@ export default function Hero() {
           className="mix-blend-luminosity"
         />
       </div>
-      {/* min-h-[calc(100vh-80px)] */}
+
       {/* Content container */}
       {/* <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 lg:pt-32"> */}
       <div className="relative z-10 w-full mx-auto mt-20 md:mt-8 lg:mt-0 grid grid-cols-12 ">
