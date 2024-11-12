@@ -93,5 +93,5 @@ export default async function LayoutRoute({
 }
 
 export async function generateStaticParams() {
-  return [{ slug: "" }];
+  return [{ slug: "the-pros-and-cons-of-using-a-website-builder" }];
 }
