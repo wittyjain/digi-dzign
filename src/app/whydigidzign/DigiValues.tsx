@@ -21,7 +21,7 @@ export default function ValuesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 md:px-16 md:py-52">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 md:p-20 ">
           <FlipCard
             title="Expertise"
             backContent="DIGIDZIGN'S US-BASED TEAM DELIVERS TAILORED AI, WEB, AND DIGITAL SOLUTIONS TO DRIVE YOUR BUSINESS GROWTH IN TODAY'S FAST-PACED MARKET."
