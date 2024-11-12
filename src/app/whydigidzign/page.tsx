@@ -9,6 +9,7 @@ import ProjectsFigues from "./ProjectsFigues";
 import SeedSection from "./SeedSection";
 import PhotoGrid from "./PhotoGrid";
 import QuestionSection from "./QuestionSection";
+import ContactForm from "@/app/sections/ContactForm";
 
 export default function WhyDiziDzign() {
   return (
@@ -38,6 +39,7 @@ export default function WhyDiziDzign() {
         <PhotoGrid />
         <QuestionSection />
       </div>
+      <ContactForm />
     </main>
   );
 }

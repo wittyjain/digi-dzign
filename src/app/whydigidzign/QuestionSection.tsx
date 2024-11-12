@@ -111,7 +111,7 @@ export default function Component() {
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="">
       <div className="w-full mb-12">
         <h1 className="text-5xl md:text-7xl lg:text-9xl leading-tight font-semibold text-[#21005E] uppercase">
           Got any <span className="text-[#3A47F4]">questions?</span>
