@@ -11,21 +11,21 @@ export default gql`
             title(format: RENDERED)
             databaseId
             featuredImage {
-            node {
-                mediaDetails {
-                sizes {
-                    sourceUrl
-                    width
-                    height
+                node {
+                    mediaDetails {
+                    sizes {
+                        sourceUrl
+                        width
+                        height
+                    }
+                    }
                 }
-                }
-            }
             }
             categories {
-            nodes {
-                name
-                slug
-            }
+                nodes {
+                    name
+                    slug
+                }
             }
         }
     }

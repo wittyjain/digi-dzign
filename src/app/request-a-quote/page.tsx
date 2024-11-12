@@ -1,8 +1,8 @@
 import CTAButton from "@/components/CTAButton";
 import Image from "next/image";
 import Consultaion from "./Consultation";
-import Contact from "./Contact";
-import JoinCard from "./Joincard";
+import Contact from "./contact";
+import JoinCard from "./joincard";
 
 export default function RequestQuote() {
   return (
