@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ApolloWrapper } from "@/lib/ApolloWrapper";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -24,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <div className="w-full flex flex-col">
-          <Header />
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </div>
+        <ApolloWrapper>
+          <div className="w-full flex flex-col">
+            <Header />
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
+        </ApolloWrapper>
       </body>
     </html>
   );
