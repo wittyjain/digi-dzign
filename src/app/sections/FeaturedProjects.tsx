@@ -90,7 +90,7 @@ export default function FeaturedProjects() {
               </div>
             </div>
           </div>
-          <div className="flex gap-3 overflow-x-auto pb-4 md:pb-0 scrollbar-hide">
+          <div className="flex gap-3 overflow-x-scroll pb-4 md:pb-0 scrollbar-hide">
             {categories.map((category) => (
               <Button
                 key={category}

@@ -79,7 +79,7 @@ const ServicesCardCarousel = () => {
             <>
               {colIndex % 2 === 0 ? (
                 <div
-                  key={index}
+                  key={item.title}
                   className={`cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
                 >
                   <div className={`max-w-[40%] ${item.textPosition}`}>
@@ -91,7 +91,7 @@ const ServicesCardCarousel = () => {
                 </div>
               ) : (
                 <div
-                  key={index}
+                  key={item.title}
                   className={`cursor-pointer rounded-3xl w-full p-4 grow flex justify-center items-center ${item.bg}`}
                 >
                   <div className={`max-w-[40%] ${item.textPosition}`}>

@@ -96,6 +96,18 @@ const config: Config = {
         ".rotate-y-180": {
           transform: "rotateY(180deg)",
         },
+        ".scrollbar-hide": {
+          /* IE and Edge */
+          "-ms-overflow-style": "none",
+
+          /* Firefox */
+          "scrollbar-width": "none",
+
+          /* Safari and Chrome */
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
       };
       // @ts-ignore
       addUtilities(newUtilities, ["responsive", "hover"]);
