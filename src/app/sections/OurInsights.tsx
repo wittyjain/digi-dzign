@@ -43,7 +43,7 @@ const insights = [
   },
 ];
 
-export default function OurInsights() {
+export default function OurInsights({ showHead = true }) {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -60,33 +60,35 @@ export default function OurInsights() {
   return (
     <div className="bg-[#0A0219] px-4 py-12 md:p-8 lg:px-16 lg:py-20 lg:pt-28">
       {/* Hero Section */}
-      <section className="mx-auto py-8 px-4 leading-[60px] lg:py-20 lg:px-16">
-        <h2 className="text-white text-3xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold leading-[60px] lg:leading-[120px] w-fit mx-auto">
-          <span className="text-[#3A47F4] lg:leading-[120px]">
-            CREATIVE DESIGN
-          </span>{" "}
-          ATTRACTS PEOPLE.{" "}
-          <span className="text-[#3A47F4] leading-[60px] lg:leading-[120px]">
-            SMART UX
-          </span>{" "}
-          MAKES{" "}
-          <span
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, #FFFFFF 43%, rgba(255, 255, 255, 0) 100%)",
-            }}
-            className="leading-[60px] lg:leading-[120px] block bg-clip-text bg-cover bg-no-repeat text-transparent"
-          >
-            THEM STAY AT OUT CROWD
-            <br />- WE DELIVER BOTH.
-          </span>
-        </h2>
-        <div className="mt-8 lg:mt-24 flex justify-end w-full">
-          <div className="w-full lg:mr-40 md:w-fit lg:min-w-[40%]">
-            <CTAButton floatingImageUrl="/images/booked_fast.svg" />
+      {showHead && (
+        <section className="mx-auto py-8 px-4 leading-[60px] lg:py-20 lg:px-16">
+          <h2 className="text-white text-3xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold leading-[60px] lg:leading-[120px] w-fit mx-auto">
+            <span className="text-[#3A47F4] lg:leading-[120px]">
+              CREATIVE DESIGN
+            </span>{" "}
+            ATTRACTS PEOPLE.{" "}
+            <span className="text-[#3A47F4] leading-[60px] lg:leading-[120px]">
+              SMART UX
+            </span>{" "}
+            MAKES{" "}
+            <span
+              style={{
+                backgroundImage:
+                  "linear-gradient(180deg, #FFFFFF 43%, rgba(255, 255, 255, 0) 100%)",
+              }}
+              className="leading-[60px] lg:leading-[120px] block bg-clip-text bg-cover bg-no-repeat text-transparent"
+            >
+              THEM STAY AT OUT CROWD
+              <br />- WE DELIVER BOTH.
+            </span>
+          </h2>
+          <div className="mt-8 lg:mt-24 flex justify-end w-full">
+            <div className="w-full lg:mr-40 md:w-fit lg:min-w-[40%]">
+              <CTAButton floatingImageUrl="/images/booked_fast.svg" />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Insights Section */}
       <section className="mx-auto py-20">
@@ -96,7 +98,7 @@ export default function OurInsights() {
               align: "start",
               loop: false,
             }}
-            className="w-full max-w-7xl mx-auto"
+            className="w-full mx-auto"
           >
             <div className="px-4 lg:px-8 xl:px-12 mb-16">
               <div className="flex items-center justify-between mb-12">

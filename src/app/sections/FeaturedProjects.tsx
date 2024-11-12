@@ -61,7 +61,7 @@ export default function FeaturedProjects() {
           align: "start",
           loop: false,
         }}
-        className="w-full max-w-7xl mx-auto"
+        className="w-full mx-auto"
       >
         <div className="mb-16">
           <div className="flex items-center justify-between mb-12">
