@@ -21,7 +21,7 @@ export default function ClietSection() {
   ];
 
   return (
-    <section className="w-full  p-4 md:p-6 lg:p-10 ">
+    <section className="w-full  p-4 ">
       <div className="container">
         <div className="space-y-4 md:space-y-8 lg:space-y-12">
           <h2 className="text-5xl md:text-6xl lg:text-9xl font-semibold">
