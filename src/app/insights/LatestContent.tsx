@@ -12,7 +12,6 @@ interface LatestContentProps {
 }
 
 export function LatestContent({ data }: LatestContentProps) {
-  console.log(data);
   return (
     <div className="space-y-4">
       <h2 className="text-3xl md:text-5xl font-semibold tracking-wider text-[#21005E] mb-6">
@@ -47,7 +46,7 @@ export function LatestContent({ data }: LatestContentProps) {
                     <span>By {content?.author?.node?.name}</span>
                     <span>•</span>
                     <span className="font-light">
-                      {content?.readTime ?? "5 mins read"}
+                      {/*content?.readTime ??*/ "5 mins read"}
                     </span>
                   </div>
                   <h3 className="md:text-3xl font-medium leading-9 text-[#21005E]">
@@ -71,7 +70,7 @@ export function LatestContent({ data }: LatestContentProps) {
                           className="text-white"
                         />
                       </div>
-                    </Button> 
+                    </Button>
                   </Link>
                 </div>
               </div>

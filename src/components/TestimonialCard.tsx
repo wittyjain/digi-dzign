@@ -22,8 +22,8 @@ export default function TestimonialCard({
   name = "Asya Rudikoff",
   title = "Manager of Physical and Occupational Therapy",
   quote = "We knew we had room for overall process improvement and greater efficiency. With Skedulo we've improved utilization and reduced costs significantly.",
-  avatar = "/placeholder.svg?height=80&width=80",
-  media = { type: "image", src: "/placeholder.svg?height=400&width=300" },
+  avatar = "/images/avatar1.png?height=80&width=80",
+  media = { type: "image", src: "/testimonial.png" },
 }: TestimonialCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);

@@ -98,7 +98,7 @@ export default async function LayoutRoute({
 export async function generateStaticParams() {
   const { data } = await getClient().query({
     query: getAllPostSlugs,
-    variables: { after: "null", first: 10 },
+    variables: { after: "null", first: 30 },
   });
   const nodes = data.posts.nodes;
 

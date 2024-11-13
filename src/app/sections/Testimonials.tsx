@@ -5,6 +5,9 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { getClient } from "@/lib/ApolloClient";
+import getAllTestimonials from "@/queries/Testimonials/getAllTestimonials";
+import { Testimonial } from "@/types/testimonial";
 import Image from "next/image";
 
 const testimonialsData = [
@@ -37,7 +40,14 @@ const testimonialsData = [
   },
 ];
 
-const Testimonials = ({ showHeader = true }) => {
+const Testimonials = async ({ showHeader = true }) => {
+  const { data } = await getClient().query({
+    query: getAllTestimonials,
+    variables: { after: "null", first: 10 },
+  });
+
+  const testimonials: Testimonial[] = data.testimonials.nodes;
+
   return (
     <div className="bg-[#0A0219] py-8 px-4 lg:px-12 xl:px-16 lg:py-20 xl:py-24 bg-testimonials bg-cover bg-no-repeat">
       {showHeader && (
@@ -83,7 +93,7 @@ const Testimonials = ({ showHeader = true }) => {
           }}
         >
           <CarouselContent className="px-4 md:px-8 lg:px-16 py-24">
-            {testimonialsData.map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="lg:w-fit lg:max-w-lg">
                 {/* <div
                 className="rounded-3xl flex flex-col border p-6 space-y-12"
@@ -118,11 +128,16 @@ const Testimonials = ({ showHeader = true }) => {
                 </div>
               </div> */}
                 <TestimonialCard
-                  name={testimonial.name}
-                  title={testimonial.title}
-                  quote={testimonial.quote}
-                  avatar={testimonial.avatar}
-                  media={testimonial.media}
+                  name={testimonial.testimonials.authorName}
+                  title={testimonial.testimonials.position}
+                  quote={testimonial.testimonials.quote}
+                  avatar={
+                    testimonial.testimonials.authorImageUrl.node.sourceUrl
+                  }
+                  media={{
+                    type: "image",
+                    src: testimonial.testimonials.bgImageUrl.node.sourceUrl,
+                  }}
                 />
               </CarouselItem>
             ))}

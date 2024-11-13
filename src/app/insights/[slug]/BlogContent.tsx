@@ -12,8 +12,6 @@ export default function BlogContent({ post }: BlogContentProps) {
     (image) => image.name === "mk_image_size_landscape"
   );
 
-  console.log("img", featuredImage);
-
   return (
     <div className="flex flex-col space-y-8">
       <div>
