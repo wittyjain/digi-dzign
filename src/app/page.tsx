@@ -6,14 +6,22 @@ import Hero from "./sections/Hero";
 import Services from "./sections/Services";
 import Testimonials from "./sections/Testimonials";
 import OurInsights from "./sections/OurInsights";
+import { getClient } from "@/lib/ApolloClient";
+import getAllServices from "@/queries/Services/getAllServices";
 
-export default function Home() {
+export default async function Home() {
+  const { data } = await getClient().query({
+    query: getAllServices,
+  });
+
+  console.log(data)
+
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
       <div className="w-full">
         <Hero />
         <FeaturedProjects />
-        <Services />
+        <Services services={data.services.nodes} />
         <Testimonials />
         <div>
           <Image

@@ -43,7 +43,6 @@ const testimonialsData = [
 const Testimonials = async ({ showHeader = true }) => {
   const { data } = await getClient().query({
     query: getAllTestimonials,
-    variables: { after: "null", first: 10 },
   });
 
   const testimonials: Testimonial[] = data.testimonials.nodes;

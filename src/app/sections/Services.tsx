@@ -15,10 +15,17 @@ import Image from "next/image";
 import { useState } from "react";
 import ServicesCardCarousel from "./ServicesCardCarousel";
 import Link from "next/link";
+import { Service } from "@/types/service";
 
-export default function Services() {
+interface ServicesProps {
+  services: Service[];
+}
+
+export default function Services({ services }: ServicesProps) {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [isDisabled, setIsDisabled] = useState(true);
+
+  console.log(services)
 
   return (
     <div className="m-4 md:m-8 lg:m-16 lg:my-24">
