@@ -5,8 +5,17 @@ import { Topics } from "@/app/insights/Topics";
 import { Featured } from "@/app/insights/Featured";
 import { LatestContent } from "@/app/insights/LatestContent";
 import ContactForm from "@/app/sections/ContactForm";
+import { getClient } from "@/lib/ApolloClient";
+import getAllPosts from "@/queries/Posts/getAllPosts";
 
-export default function insights() {
+export default async function insights() {
+  const { data } = await getClient().query({
+    query: getAllPosts,
+    variables: { after: 'null', first: 10 },
+  });
+
+  console.log(data.posts.nodes)
+
   return (
     <div className="flex flex-col gap-40 items-center">
       <main className=" row-start-2 flex flex-col items-center gap-40 sm:items-start w-full p-4 md:p-8 xl:p-16 pb-10 sm:p-20 ">
@@ -43,7 +52,7 @@ export default function insights() {
           <div className="md:col-start-3 col-span-10 flex flex-col gap-20">
             <Topics />
             <Featured />
-            <LatestContent />
+            <LatestContent data={data.posts.nodes} />
           </div>
         </section>
       </main>

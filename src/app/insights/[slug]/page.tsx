@@ -2,7 +2,7 @@ import { getClient, PreloadQuery } from "@/lib/ApolloClient";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import BlogContent from "./BlogContent";
-import getSinglePost from "@/queries/getSinglePost";
+import getSinglePost from "@/queries/Posts/getSinglePost";
 
 export default async function PostRoute({
   params,
@@ -15,8 +15,6 @@ export default async function PostRoute({
   });
 
   if (!data) return notFound();
-
-  console.log("gql resp data", data);
 
   return (
     // <PreloadQuery

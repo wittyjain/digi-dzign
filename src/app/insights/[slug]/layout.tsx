@@ -5,6 +5,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SubscribeNewsletter from "./SubscribeNewsletter";
 import QuickLinks from "./QuickLinks";
+import { getClient } from "@/lib/ApolloClient";
+import getAllPostSlugs from "@/queries/Posts/getAllPostSlugs";
+import { Post } from "@/types/post";
 
 const convertSlugToTitle = (slug: string): string => {
   return slug
@@ -93,5 +96,11 @@ export default async function LayoutRoute({
 }
 
 export async function generateStaticParams() {
-  return [{ slug: "the-pros-and-cons-of-using-a-website-builder" }];
+  const { data } = await getClient().query({
+    query: getAllPostSlugs,
+    variables: { after: "null", first: 10 },
+  });
+  const nodes = data.posts.nodes;
+
+  return nodes.map((post: Post) => ({ slug: post.slug }));
 }

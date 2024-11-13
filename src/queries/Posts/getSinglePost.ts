@@ -17,6 +17,7 @@ export default gql`
                         sourceUrl
                         width
                         height
+                        name
                     }
                     }
                 }
