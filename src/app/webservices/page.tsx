@@ -1,7 +1,8 @@
+import ContactForm from "../sections/ContactForm";
 import CraftSection from "./CraftSection";
+import FeatureGrid from "./FeatureGrid";
 import Hero from "./Hero";
 import MockupSection from "./MockupSection";
-import WebServiceCard from "./WebServiceCard";
 
 const WebServices = () => {
   return (
@@ -9,16 +10,8 @@ const WebServices = () => {
       <Hero />
       <MockupSection />
       <CraftSection />
-      <WebServiceCard
-        title="Responsive Web and Mobile Design"
-        description="Our developers specialize in front-end and back-end, using AngularJS, Bootstrap, PHP, WordPress, and more to build scalable, secure websites. We integrate advanced tech like Blockchain, Smart Contracts, and data solutions (Warehousing, BI) for clean, efficient, and responsive designs across all devices."
-        points={[
-          { text: "Data Migration Services" },
-          { text: "Performance Optimization" },
-        ]}
-        videoSrc="/images/webservices/responsive-video.mov"
-        minMaxProgress={75}
-      />
+      <FeatureGrid />
+      <ContactForm />
     </div>
   );
 };

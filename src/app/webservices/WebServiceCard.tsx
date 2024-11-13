@@ -1,86 +1,100 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Check, Plus } from "lucide-react";
+import Image from "next/image";
+import { useRef, useEffect } from "react";
 
-interface FeaturePoint {
-  text: string;
+// Types for our card props
+interface ServiceCardProps {
+  title: string;
+  description: string;
+  points: string[];
+  backgroundColor?: string;
+  mediaUrl: string;
+  isVideo?: boolean;
+  titleColor?: string;
+  descriptionColor?: string;
+  pointsColor?: string;
+  iconColor?: string;
+  iconbackground?: string;
+  imageTransitionClass?: string;
 }
 
-interface FeatureCardProps {
-  title?: string;
-  description?: string;
-  points?: FeaturePoint[];
-  videoSrc?: string;
-  className?: string;
-  minMaxProgress?: number;
-}
+// WebService Card Component
+export default function WebServiceCard({
+  title,
+  description,
+  points,
+  backgroundColor = "",
+  mediaUrl,
+  isVideo = false,
 
-export default function Component({
-  title = "Responsive Web and Mobile Design",
-  description = "Our developers specialize in front-end and back-end...",
-  points = [
-    { text: "Data Migration Services" },
-    { text: "Performance Optimization" },
-  ],
-  videoSrc = "/placeholder.mp4",
-  className = "",
-  minMaxProgress = 50,
-}: FeatureCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
+  titleColor = "text-[#21005E]",
+  descriptionColor = "text-[#21005ECC] ",
+  pointsColor = "text-black",
+  iconColor = "text-white",
+  iconbackground = "bg-[#21005E]",
+  imageTransitionClass = "",
+}: ServiceCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    console.log("Component mounted");
-    if (videoRef.current) {
-      videoRef.current
-        .play()
-        .catch((e) => console.error("Video playback failed:", e));
+    if (videoRef.current && isVideo) {
+      videoRef.current.play();
     }
-  }, []);
-
+  }, [isVideo]);
   return (
-    <Card
-      ref={cardRef}
-      className={`relative overflow-hidden p-6 md:p-8 bg-white rounded-3xl ${className}`}
-    >
-      <button className="absolute top-4 right-4 w-10 h-10 bg-[#21005E] rounded-full flex items-center justify-center">
-        <Plus className="w-6 h-6 text-white" />
-      </button>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="space-y-6">
-          <h2 className="text-xl md:text-3xl font-semibold text-[#21005E]">
-            {title}
-          </h2>
-          <p className="text-[#21005ECC] text-lg font-normal md:font-medium leading-6">
+    <Card className={`h-full ${backgroundColor} overflow-hidden relative`}>
+      <div className="flex flex-col lg:flex-row h-full">
+        <div className="p-6 lg:w-1/2">
+          <div className="flex justify-between items-start ">
+            <h2
+              className={`text-xl md:text-2xl w-1/2 md:w-full font-semibold ${titleColor}`}
+            >
+              {title}
+            </h2>
+            <div
+              className={`absolute md:right-[2%] md:top-[4%] top-[2%] right-[5%] flex items-center justify-center ${iconbackground}  rounded-full p-2 max-w-[3rem] max-h-[3rem]`}
+            >
+              <Plus className={`${iconColor} w-full h-full`} />
+            </div>
+          </div>
+          <p
+            className={`my-6 text-base font-normal md:font-medium leading-6 ${descriptionColor}`}
+          >
             {description}
           </p>
-          <ul className="space-y-4">
+          <ul className="space-y-5 text-base font-normal md:font-medium">
             {points.map((point, index) => (
-              <li key={index} className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#5A00FF] flex items-center justify-center flex-shrink-0">
-                  <Check className="w-4 h-4 text-white" />
+              <li key={index} className="flex items-center gap-4">
+                <div className="flex items-center justify-center bg-[#21005E] rounded-full p-2 max-w-[2rem] max-h-[2rem]">
+                  <Check className="text-white w-full h-full" />
                 </div>
-                <span className="text-black font-normal md:font-medium text-lg">
-                  {point.text}
-                </span>
+                <span className={pointsColor}>{point}</span>
               </li>
             ))}
           </ul>
         </div>
-
-        <div className="relative rounded-lg overflow-hidden">
-          <video
-            ref={videoRef}
-            className="w-full h-full object-cover"
-            loop
-            muted
-            playsInline
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
+        <div className="lg:w-1/2 h-full md:absolute md:right-0 md:top-1/3">
+          {isVideo ? (
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              loop
+              muted
+              playsInline
+              src={mediaUrl}
+              aria-label={`Video illustrating ${title}`}
+            />
+          ) : (
+            <Image
+              src={mediaUrl}
+              alt={title}
+              fill
+              className={`object-cover ${imageTransitionClass}`}
+            />
+          )}
         </div>
       </div>
     </Card>
