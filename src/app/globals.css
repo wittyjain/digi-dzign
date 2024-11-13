@@ -119,15 +119,15 @@ body {
 
 /* Headers */
 .rich-text h1 {
-  @apply text-4xl font-medium mb-4 text-[#21005E] leading-10;
+  @apply text-4xl font-medium mb-4 text-[#21005E] leading-[64px];
 }
 
 .rich-text h2 {
-  @apply text-5xl font-medium mt-10 mb-4 text-[#21005E] leading-10;
+  @apply text-5xl font-medium mt-10 mb-4 text-[#21005E] leading-[52px];
 }
 
 .rich-text h3 {
-  @apply text-2xl font-medium mb-4 text-[#21005E] leading-10;
+  @apply text-2xl font-medium mb-4 text-[#21005E] leading-[48px];
 }
 
 .rich-text h4 {
@@ -197,11 +197,11 @@ body {
 
 /* Code blocks */
 .rich-text pre {
-  @apply font-serif bg-[#222027] text-[#222027] rounded p-4  my-6;
+  @apply font-serif bg-[#222027] text-white rounded p-4  my-6;
 }
 
 .rich-text code {
-  @apply font-serif bg-[#222027] text-[#222027] rounded px-2 py-1;
+  @apply font-serif bg-[#21005E] text-white rounded px-2 py-1;
 }
 
 /* Tables */

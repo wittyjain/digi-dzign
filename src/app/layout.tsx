@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ApolloWrapper } from "@/lib/ApolloWrapper";
+import SocialMediaSidebar from "./sections/SocialMediaSidebar";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <ApolloWrapper>
           <div className="w-full flex flex-col">
             <Header />
+            <SocialMediaSidebar />
             <div className="flex-1">{children}</div>
             <Footer />
           </div>

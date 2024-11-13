@@ -61,12 +61,10 @@ export default function ContactForm() {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log(data);
     setIsSubmitting(false);
-    // Here you would typically send the data to your backend
+    // send the data to wp
     alert("Form submitted successfully!");
     form.reset();
   };
-
-  //bg-gradient-to-bl from-[#A100FF] to-[#21005E]
 
   return (
     <div className="bg-[#0A0219] bg-contact-form-bg mb-8 p-4 pb-12 md:px-8 md:py-12 lg:px-16 lg:py-24">

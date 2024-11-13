@@ -76,7 +76,7 @@ const ServicesCardCarousel = () => {
           }`}
         >
           {column.map((item, index) => (
-            <>
+            <Fragment key={index}>
               {colIndex % 2 === 0 ? (
                 <div
                   key={item.title}
@@ -102,7 +102,7 @@ const ServicesCardCarousel = () => {
                   </div>
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </CarouselItem>
       ))}
