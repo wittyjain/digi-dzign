@@ -80,7 +80,7 @@ interface ServiceCardProps {
 export default function SEOCard({
   title,
   description,
-  points,
+  points = [],
   backgroundColor = "bg-gradient-to-tr from-[#21005E] to-[#A100FF] ",
   mediaUrl,
   isVideo = false,
