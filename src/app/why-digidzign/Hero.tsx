@@ -20,7 +20,7 @@ export default function Hero() {
 
       {/* Content container */}
       {/* <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 lg:pt-32"> */}
-      <div className="relative z-10 w-full mx-auto mt-20 md:mt-8 lg:mt-0 grid grid-cols-12 ">
+      <div className="relative w-full mx-auto mt-20 md:mt-8 lg:mt-0 grid grid-cols-12 ">
         <div className="  col-start-1 col-span-12  text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold md:font-semibold  ">
           <div className="grid grid-cols-12 gap-y-4">
             {/* Main heading */}
