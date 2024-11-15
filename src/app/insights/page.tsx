@@ -8,11 +8,19 @@ import ContactForm from "@/app/sections/ContactForm";
 import { getClient } from "@/lib/ApolloClient";
 import getAllPosts from "@/queries/Posts/getAllPosts";
 
-export default async function insights() {
-  const { data } = await getClient().query({
+async function getPosts() {
+  const resp = await getClient().query({
     query: getAllPosts,
     variables: { after: 'null', first: 10 },
   });
+
+  if (!resp) return null;
+
+  return resp.data;
+}
+
+export default async function insights() {
+  const data = await getPosts();
 
   console.log(data.posts.nodes)
 

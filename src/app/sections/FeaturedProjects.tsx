@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -95,11 +96,12 @@ export default function FeaturedProjects() {
               <Button
                 key={category}
                 variant="outline"
-                className={`rounded-full px-6 py-6 whitespace-nowrap ${
+                className={cn(
+                  `rounded-full px-6 py-6 whitespace-nowrap`,
                   activeCategory === category
                     ? "bg-white text-black hover:bg-white/90"
-                    : "bg-transparent text-white hover:bg-white/10"
-                }`}
+                    : "bg-transparent text-white hover:bg-white/20 transition-all hover:text-white"
+                )}
                 onClick={() => setActiveCategory(category)}
               >
                 {category}

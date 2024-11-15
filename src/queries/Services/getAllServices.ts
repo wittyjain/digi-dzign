@@ -5,6 +5,7 @@ export default gql`
     services {
       nodes {
         title
+        slug
         serviceData {
           description
           bgImage {

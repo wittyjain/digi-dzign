@@ -1,16 +1,20 @@
 export interface Service {
-  __typename: string;
-  description: string;
-  bgImage: {
+  title: string;
+  slug: string;
+  serviceData: {
     __typename: string;
-    node: {
+    description: string;
+    bgImage: {
       __typename: string;
-      mediaDetails: {
+      node: {
         __typename: string;
-        sizes: Array<{
+        mediaDetails: {
           __typename: string;
-          sourceUrl: string;
-        }>;
+          sizes: Array<{
+            __typename: string;
+            sourceUrl: string;
+          }>;
+        };
       };
     };
   };

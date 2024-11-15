@@ -24,7 +24,7 @@ const socialMedia = [
 
 export default function SocialMediaSidebar() {
   return (
-    <div className="fixed left-0 top-[50%] flex w-[40px] flex-col items-start justify-center gap-5 rounded-r-[24px] bg-[#21005E] px-2 py-5">
+    <div className="fixed left-0 top-[50%] translate-y-[50%] flex w-[40px] flex-col items-start justify-center gap-5 rounded-r-[24px] bg-[#21005E] px-2 py-5">
       {socialMedia.map((item) => (
         <Link
           key={item.id}

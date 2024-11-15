@@ -21,7 +21,7 @@ export default async function Home() {
       <div className="w-full">
         <Hero />
         <FeaturedProjects />
-        <Services services={data.services.nodes} />
+        <Services services={data?.services?.nodes} />
         <Testimonials />
         <div>
           <Image
