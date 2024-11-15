@@ -23,24 +23,25 @@ interface ServicesProps {
 }
 
 export const servicesList = [
-  { name: "Landing Page" },
-  { name: "E-Commerce" },
-  { name: "Settings" },
-  { name: "Marketplace" },
-  { name: "CRM, CMS" },
-  { name: "Shopify Design & Dev" },
-  { name: "Wordpress Development" },
-  { name: "Webflow Development" },
-  { name: "Flutter Development" },
-  { name: "React Development" },
-  { name: "Front-end Development" },
-  { name: "Back-end Development" },
-  { name: "Custom Web Development" },
-  { name: "Dashboard" },
+  { name: "Website Development" },
+  { name: "App Development" },
+  { name: "CRM, CMS, Web Apps" },
   { name: "Blockchain / Decentralized Platforms" },
+  { name: "Audit" },
+  { name: "E-commerce & Shopify" },
+  { name: "Wireframing & User Testing" },
+  { name: "Prototyping" },
+  { name: "Accessibility" },
+  { name: "Branding & Visual Identity" },
+  { name: "User Experience Design" },
+  { name: "Marketing" },
   { name: "SaaS" },
+  { name: "Mobile App & Web Design" },
+  { name: "Design Systems" },
+  { name: "Strategy & Design" },
   { name: "Web 3.0 Design" },
-  { name: "Product Design" },
+  { name: "Animation & Motion Design" },
+  { name: "AI design" },
 ];
 
 export default function Services({ services }: ServicesProps) {
@@ -152,7 +153,7 @@ export default function Services({ services }: ServicesProps) {
             height="50"
           />
           <div className="flex">
-            <span>Don't see it?{" "}</span>
+            <span>Don't see it? </span>
             <Link href={"/contact-us"} className="text-[#21005E] flex">
               <span className="font-semibold mr-1">Ask us</span>
               <Image
