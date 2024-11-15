@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const categories = [
@@ -72,18 +73,20 @@ export default function FeaturedProjects() {
               <span className="text-[#3A47F4]">PROJECTS</span>
             </h1>
             <div className="hidden lg:flex lg:gap-x-12">
-              <Button
-                variant="outline"
-                className="hidden md:flex items-center gap-2 bg-white text-[#21005E] text-sm font-semibold hover:bg-white/90 rounded-xl px-6 py-6"
-              >
-                VIEW ALL PROJECTS
-                <Image
-                  src={"/icons/right-arrow.svg"}
-                  alt={"right arrow"}
-                  width={25}
-                  height={25}
-                />
-              </Button>
+              <Link href="/work">
+                <Button
+                  variant="outline"
+                  className="hidden md:flex items-center gap-2 bg-white text-[#21005E] text-sm font-semibold hover:bg-white/90 rounded-xl px-6 py-6"
+                >
+                  VIEW ALL PROJECTS
+                  <Image
+                    src={"/icons/right-arrow.svg"}
+                    alt={"right arrow"}
+                    width={25}
+                    height={25}
+                  />
+                </Button>
+              </Link>
               <div className="w-0.5 h-12 bg-[#644D8E]"></div>
               <div className="flex gap-2">
                 <CarouselPrevious className={`static translate-y-0`} />
@@ -144,18 +147,20 @@ export default function FeaturedProjects() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <Button
-            variant="outline"
-            className="lg:hidden items-center gap-2 bg-white text-[#21005E] text-sm font-semibold hover:bg-white/90 rounded-xl px-6 py-6 flex gap-x-12"
-          >
-            VIEW ALL PROJECTS
-            <Image
-              src={"/icons/right-arrow.svg"}
-              alt={"right arrow"}
-              width={25}
-              height={25}
-            />
-          </Button>
+          <Link href={"/work"}>
+            <Button
+              variant="outline"
+              className="lg:hidden w-full items-center gap-2 bg-white text-[#21005E] text-sm font-semibold hover:bg-white/90 rounded-xl px-6 py-6 flex gap-x-12"
+            >
+              VIEW ALL PROJECTS
+              <Image
+                src={"/icons/right-arrow.svg"}
+                alt={"right arrow"}
+                width={25}
+                height={25}
+              />
+            </Button>
+          </Link>
         </div>
       </Carousel>
     </div>

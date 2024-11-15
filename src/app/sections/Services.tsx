@@ -16,10 +16,32 @@ import { useState } from "react";
 import ServicesCardCarousel from "./ServicesCardCarousel";
 import Link from "next/link";
 import { Service } from "@/types/service";
+import ServiceBadge from "@/components/ServiceBadge";
 
 interface ServicesProps {
   services: Service[];
 }
+
+export const servicesList = [
+  { name: "Landing Page" },
+  { name: "E-Commerce" },
+  { name: "Settings" },
+  { name: "Marketplace" },
+  { name: "CRM, CMS" },
+  { name: "Shopify Design & Dev" },
+  { name: "Wordpress Development" },
+  { name: "Webflow Development" },
+  { name: "Flutter Development" },
+  { name: "React Development" },
+  { name: "Front-end Development" },
+  { name: "Back-end Development" },
+  { name: "Custom Web Development" },
+  { name: "Dashboard" },
+  { name: "Blockchain / Decentralized Platforms" },
+  { name: "SaaS" },
+  { name: "Web 3.0 Design" },
+  { name: "Product Design" },
+];
 
 export default function Services({ services }: ServicesProps) {
   const [activeCategory, setActiveCategory] = useState("ALL");
@@ -108,6 +130,46 @@ export default function Services({ services }: ServicesProps) {
           </Button>
         </Link>
       </Carousel>
+      <div className="my-8 lg:my-12 px-4 py-8 lg:px-8 lg:py-12 col-start-7 col-span-6	bg-[#FCFBFF] rounded-3xl">
+        <div className="flex flex-wrap justify-start items-center gap-1 max-w- mx-auto">
+          {servicesList.map((service, index) => {
+            // Calculate column span based on service name length
+            const isLongName = service.name.length > 25;
+            const colSpan = isLongName ? "sm:col-span-2" : "";
+
+            return (
+              <div key={index} className={colSpan}>
+                <ServiceBadge name={service.name} color={"#21005E"} />
+              </div>
+            );
+          })}
+        </div>
+        <div className="w-full mt-8 md:mt-12 lg:mt-16 flex justify-between">
+          <Image
+            src={"/images/ideas-to-reality.png"}
+            alt={"Let's turn your ideas into reality"}
+            width="240"
+            height="50"
+          />
+          <div className="flex">
+            <span>Don't see it?{" "}</span>
+            <Link href={"/contact-us"} className="text-[#21005E] flex">
+              <span className="font-semibold mr-1">Ask us</span>
+              <Image
+                src={"/icons/right-arrow-white.svg"}
+                alt={"right arrow"}
+                width={25}
+                height={25}
+                className="rounded-full inline-block h-6 w-6"
+                style={{
+                  background:
+                    "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+                }}
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
