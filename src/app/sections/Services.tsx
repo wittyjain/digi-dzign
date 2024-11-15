@@ -25,10 +25,10 @@ export default function Services({ services }: ServicesProps) {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [isDisabled, setIsDisabled] = useState(true);
 
-  console.log(services)
+  console.log(services);
 
   return (
-    <div className="m-4 md:m-8 lg:m-16 lg:my-24">
+    <div className="mx-4 py-14 md:m-8 lg:m-16 lg:my-24">
       <Carousel
         opts={{
           align: "start",
@@ -43,10 +43,9 @@ export default function Services({ services }: ServicesProps) {
               <br />
               <span className="text-[#A100FF]">EXCEL AT</span>
             </h1>
-            <div className="flex justify-center items-center space-x-20">
+            <div className="hidden lg:flex justify-center items-center space-x-20">
               <Link href={"/services"}>
                 <Button
-                  
                   variant="outline"
                   className="hidden md:flex items-center gap-2 bg-white border border-[#A300FF] text-[#A300FF] hover:bg-white/90 rounded-xl px-6 py-6"
                 >
@@ -80,11 +79,34 @@ export default function Services({ services }: ServicesProps) {
             </div>
           </div>
         </div>
-        <div className="w-full grid grid-cols-1 gap-8">
-          <CarouselContent className="-ml-2 md:-ml-4 gap-4 p-4 flex">
+        <div className="w-full grid grid-cols-1 gap-x-8">
+          <CarouselContent className=" gap-8 flex">
             <ServicesCardCarousel />
           </CarouselContent>
         </div>
+        <Link href={"/services"} className="w-full">
+          <Button
+            variant="outline"
+            className="lg:hidden flex w-full my-12 items-center gap-12 bg-white border border-[#A300FF] text-[#A300FF] hover:bg-white/90 rounded-xl px-6 py-6"
+          >
+            VIEW ALL SERVICES
+            <span
+              className="rounded-full"
+              style={{
+                background:
+                  "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+              }}
+            >
+              <Image
+                src={"/icons/right-arrow.svg"}
+                alt={"right arrow"}
+                width={25}
+                height={25}
+                className="invert"
+              />
+            </span>
+          </Button>
+        </Link>
       </Carousel>
     </div>
   );

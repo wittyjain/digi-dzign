@@ -285,7 +285,7 @@ export default function ContactForm() {
         </Form>
       </Card>
       <div className="w-full mt-48 flex flex-col justify-center items-center space-y-24">
-        <p className="max-w-[60%] text-white text-lg md:text-xl lg:text-2xl text-center">
+        <p className="md:max-w-[60%] text-white text-lg md:text-xl lg:text-2xl text-center">
           Filling out the form above is the fastest way to get an answer, but
           you can also schedule a call in the upcoming days if you prefer.
         </p>

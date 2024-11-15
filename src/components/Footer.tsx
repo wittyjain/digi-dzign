@@ -9,15 +9,6 @@ interface FooterProps {}
 
 const footerMenus = [
   {
-    title: "Company",
-    items: [
-      { name: "Home", path: "/" },
-      { name: "Work", path: "/services" },
-      { name: "Why DIGIDZIGN", path: "#" },
-      { name: "Insights", path: "/insights" },
-    ],
-  },
-  {
     title: "Services",
     items: [
       { name: "Web Services", path: "#" },
@@ -25,6 +16,15 @@ const footerMenus = [
       { name: "Branding & Digital Marketing", path: "#" },
       { name: "Illustrations & Motion", path: "#" },
       { name: "Consulting", path: "#" },
+    ],
+  },
+  {
+    title: "Company",
+    items: [
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/services" },
+      { name: "Why DIGIDZIGN", path: "#" },
+      { name: "Insights", path: "/insights" },
     ],
   },
 ];
@@ -63,10 +63,10 @@ const socialMedia = [
 const Footer = ({}: FooterProps) => {
   return (
     <footer className="row-start-3 flex flex-col gap-8 flex-wrap p-4 md:p-8 xl:px-16 py-4 bg-footer-pastel bg-no-repeat bg-cover">
-      <Logo />
       <div className="flex flex-row justify-between items-start flex-wrap">
-        <div>
-          <div className="max-w-96">
+        <div className="hidden lg:block">
+          <Logo />
+          <div className="max-w-96 mt-8">
             <p className="leading-7 [&:not(:first-child)]:mt-6 text-[#21005E]">
               Dorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
               vulputate libero et velit interdum, ac aliquet odio mattis.
@@ -76,7 +76,7 @@ const Footer = ({}: FooterProps) => {
             <CTAButton floatingImageUrl={"/images/partner_with_us.png"} />
           </div>
         </div>
-        <div className="flex gap-x-24 flex-wrap">
+        <div className="flex gap-x-12 lg:gap-x-24 flex-wrap">
           {footerMenus.map((menu) => (
             <div key={menu.title} className="flex flex-col max-w-[40%]">
               <ul className="list-none text-[#21005e]">
@@ -96,13 +96,15 @@ const Footer = ({}: FooterProps) => {
         </div>
       </div>
       <div>
-        <div className="text-[#A100FF] text-lg">Working Worldwide</div>
-        <div className="text-[#21005E] text-sm">Based in Miami</div>
-        <div className="text-[#21005E] font-semibold text-3xl md:text-5xl lg:text-7xl mt-8">
-          info@digidzign.com
+        <div className="hidden lg:block mb-8">
+          <div className="text-[#A100FF] text-lg">Working Worldwide</div>
+          <div className="text-[#21005E] text-sm">Based in Miami</div>
+          <div className="text-[#21005E] font-semibold text-3xl md:text-5xl lg:text-7xl mt-8">
+            info@digidzign.com
+          </div>
         </div>
-        <div className="flex justify-between items-end flex-wrap">
-          <div className="flex gap-x-4">
+        <div className="flex justify-between items-end flex-wrap w-full">
+          <div className="flex gap-x-4 w-full mb-8 justify-between md:justify-start">
             {socialMedia.map((platform) => (
               <div
                 key={platform.id}
@@ -113,12 +115,20 @@ const Footer = ({}: FooterProps) => {
                   alt={platform.id}
                   width={24}
                   height={24}
+                  className="hidden lg:block"
+                ></Image>
+                <Image
+                  src={platform.logo}
+                  alt={platform.id}
+                  width={12}
+                  height={12}
+                  className="lg:hidden block"
                 ></Image>
               </div>
             ))}
           </div>
           <div className="">
-            <div className="space-y-px mb-8">
+            <div className="space-y-px my-8">
               <div className="text-lg font-bold tracking-tight text-[#A100FF]">
                 EMAIL NEWSLETTER
               </div>
@@ -140,6 +150,14 @@ const Footer = ({}: FooterProps) => {
                 SIGN UP
               </Button>
             </form>
+          </div>
+        </div>
+        <div className="lg:hidden mt-12 flex flex-col justify-center items-center">
+          <Logo />
+          <div className="text-[#A100FF] text-lg font-semibold mt-4">Working Worldwide</div>
+          <div className="text-[#21005E] text-sm">Based in Miami</div>
+          <div className="text-[#21005E] font-semibold text-3xl md:text-5xl lg:text-7xl mt-8">
+            info@digidzign.com
           </div>
         </div>
       </div>

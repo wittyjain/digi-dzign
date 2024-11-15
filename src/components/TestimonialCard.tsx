@@ -61,32 +61,16 @@ export default function TestimonialCard({
         className={`flip-card-inner border-0 w-full h-full transition-transform duration-1000 transform-style-3d relative group-hover:rotate-y-180`}
       >
         {/* Front of card */}
-        <Card className="rounded-3xl flip-card-front w-full h-full border-0 absolute backface-hidden">
-          <div
-            className="rounded-3xl flex w-full h-full flex-col border p-6 space-y-12"
-            style={{
-              borderWidth: "2px",
-              borderStyle: "solid",
-              borderColor: "#0C03AD",
-              //   borderImageSource:
-              //     "linear-gradient(90deg, #0C03AD 0%, #050337 100%)",
-            }}
-          >
-            <Avatar className="size-24">
-              <AvatarImage
-                width={100}
-                height={100}
-                src={avatar}
-                alt="Avatar 2"
-              />
-            </Avatar>
-            <p className="text-[#002755] text-2xl leading-10">“{quote}”</p>
-            <div>
-              <div className="text-[#002755] text-2xl font-semibold">
-                {name}
-              </div>
-              <div className="text-[#424242] text-lg">{title}</div>
-            </div>
+        <Card className="rounded-3xl flip-card-front w-full h-full border-2 border-[#0C03AD] absolute backface-hidden flex flex-col p-6 space-y-12">
+          <Avatar className="size-24">
+            <AvatarImage width={100} height={100} src={avatar} alt="Avatar 2" />
+          </Avatar>
+          <p className="text-[#002755] grow text-base md:text-lg lg:text-2xl leading-7 md:leading-8 lg:leading-10">
+            “{quote}”
+          </p>
+          <div>
+            <div className="text-[#002755] text-2xl font-semibold">{name}</div>
+            <div className="text-[#424242] text-lg">{title}</div>
           </div>
         </Card>
 

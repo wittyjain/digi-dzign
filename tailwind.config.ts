@@ -57,8 +57,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        "hero-cyan": "url('/images/hero-cyan.svg')",
-        "hero-cube": "url('/images/hero-cube.svg')",
+        "hero-cyan": "url('/images/hero-cyan.png')",
+        "hero-cube": "url('/images/hero-cube.png')",
         "footer-pastel": "url('/images/footer_bg.svg')",
         "card-mask": "url('/images/card-mask.png')",
         "contact-form-bg": "url('/images/contact-form-bg.svg')",

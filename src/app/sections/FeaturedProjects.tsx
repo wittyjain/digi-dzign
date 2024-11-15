@@ -56,7 +56,7 @@ export default function FeaturedProjects() {
   const [isDisabled, setIsDisabled] = useState(true);
 
   return (
-    <div className="bg-featured-projects bg-cover bg-no-repeat m-4 md:m-8 lg:m-16 p-4 md:p-8 lg:px-12 lg:py-16 rounded-3xl">
+    <div className="bg-featured-projects bg-cover bg-no-repeat mx-4 my-14 md:m-8 lg:m-16 px-4 py-12 md:p-8 lg:px-12 lg:py-16 rounded-3xl">
       <Carousel
         opts={{
           align: "start",
@@ -74,7 +74,7 @@ export default function FeaturedProjects() {
             <div className="hidden lg:flex lg:gap-x-12">
               <Button
                 variant="outline"
-                className="hidden md:flex items-center gap-2 bg-white text-black hover:bg-white/90 rounded-xl px-6 py-6"
+                className="hidden md:flex items-center gap-2 bg-white text-[#21005E] text-sm font-semibold hover:bg-white/90 rounded-xl px-6 py-6"
               >
                 VIEW ALL PROJECTS
                 <Image
@@ -144,10 +144,18 @@ export default function FeaturedProjects() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* <div className="hidden md:flex justify-end gap-2 mt-8 pr-4">
-            <CarouselPrevious className="relative static translate-y-0 bg-white/10 hover:bg-white/20 border-0" />
-            <CarouselNext className="relative static translate-y-0 bg-white/10 hover:bg-white/20 border-0" />
-          </div> */}
+          <Button
+            variant="outline"
+            className="lg:hidden items-center gap-2 bg-white text-[#21005E] text-sm font-semibold hover:bg-white/90 rounded-xl px-6 py-6 flex gap-x-12"
+          >
+            VIEW ALL PROJECTS
+            <Image
+              src={"/icons/right-arrow.svg"}
+              alt={"right arrow"}
+              width={25}
+              height={25}
+            />
+          </Button>
         </div>
       </Carousel>
     </div>

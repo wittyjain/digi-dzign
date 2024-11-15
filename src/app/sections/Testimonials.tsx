@@ -48,16 +48,16 @@ const Testimonials = async ({ showHeader = true }) => {
   const testimonials: Testimonial[] = data.testimonials.nodes;
 
   return (
-    <div className="bg-[#0A0219] py-8 px-4 lg:px-12 xl:px-16 lg:py-20 xl:py-24 bg-testimonials bg-cover bg-no-repeat">
+    <div className="bg-[#0A0219] py-12 px-4 lg:px-12 xl:px-16 lg:py-20 xl:py-24 bg-testimonials bg-cover bg-no-repeat">
       {showHeader && (
         <>
-          <div>
+          <div className="hidden md:block">
             <h2 className="text-white text-5xl md:text-6xl lg:text-8xl font-semibold">
               WE GET THINGS
               <br /> DONE, <span className="text-[#A100FF]">RIGHT & FAST</span>
             </h2>
           </div>
-          <div className="w-full flex justify-center items-center my-48">
+          <div className="hidden md:flex w-full justify-center items-center my-48">
             <div className="max-w-[50%]">
               <div className="max-w-[75%] text-[#A57CFF] text-5xl">
                 WE MAKE THE COMPLEX SIMPLE
@@ -82,16 +82,17 @@ const Testimonials = async ({ showHeader = true }) => {
             alt={"quotes"}
             width={140}
             height={100}
+            className="hidden md:block"
           />
         </div>
         <Carousel
-          className="w-full my-20"
+          className="w-full my-8 lg:my-20"
           opts={{
             align: "start",
             loop: false,
           }}
         >
-          <CarouselContent className="px-4 md:px-8 lg:px-16 py-24">
+          <CarouselContent className="px-4 py-8 md:px-8 lg:px-16 lg:py-24">
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="lg:w-fit lg:max-w-lg">
                 {/* <div

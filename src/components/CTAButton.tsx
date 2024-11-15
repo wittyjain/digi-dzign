@@ -3,6 +3,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import type { ButtonProps } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface CTAButtonProps extends ButtonProps {
   circleCount?: number;
@@ -26,7 +27,11 @@ export default function CTAButton({
       <div className="relative md:w-fit w-full">
         <Link href={"/request-a-quote"}>
           <Button
-            className={`relative h-auto p-0 overflow-hidden rounded-2xl w-full md:w-fit ${className}`}
+            className={cn(
+              `relative h-auto p-0 overflow-hidden rounded-2xl w-full md:w-fit`,
+              'hover:rounded-full hover:scale-x-95 hover:rotate-0 transition-all duration-200 ease-in',
+              className
+            )}
             style={{
               background: `
                   linear-gradient(81.55deg, #DBEF33 12.1%, #60EA5B 65.02%, #32E2CF 101.37%)
