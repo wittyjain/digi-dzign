@@ -86,7 +86,7 @@ export default function ContactForm() {
                       "linear-gradient(204.5deg, #A100FF -30.8%, #21005E 71.34%)",
                   }}
                 /> */}
-                <div className="z-10 space-y-2">
+                <div className="space-y-2">
                   <FormField
                     control={form.control}
                     name="fullName"
@@ -185,7 +185,7 @@ export default function ContactForm() {
                     )}
                   />
                 </div>
-                <div className="z-10 space-y-2 flex flex-col">
+                <div className="space-y-2 flex flex-col">
                   <FormField
                     control={form.control}
                     name="monthlySpend"
@@ -259,7 +259,7 @@ export default function ContactForm() {
                     )}
                   />
                 </div>
-                <div className="z-10 flex justify-end mt-6 col-span-1 md:col-span-2">
+                <div className="flex justify-end mt-6 col-span-1 md:col-span-2">
                   <Button
                     type="submit"
                     className="bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-500 hover:to-emerald-500 text-black font-semibold px-12 md:px-6 py-8 rounded-2xl w-full md:w-fit flex justify-between"

@@ -111,7 +111,7 @@ export default function NavMenu({ isOpen, onClose }: OverlayMenuProps) {
     <>
       <style>{menuAnimationKeyframes}</style>
       <div
-        className={`fixed inset-0 z-50 overflow-auto ${
+        className={`fixed inset-0 z-[9999] overflow-auto ${
           isOpen
             ? "animate-[menuSlideDown_0.5s_ease-in-out]"
             : "animate-[menuSlideUp_0.5s_ease-in-out] -translate-y-full"
