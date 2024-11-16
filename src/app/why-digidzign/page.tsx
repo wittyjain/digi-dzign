@@ -36,7 +36,7 @@ export default function WhyDiziDzign() {
         }}
       />
 
-      <div className="py-4  sm:p-4 lg:px-16 md:px-8 flex flex-col gap-36">
+      <div className="py-4 sm:p-4 lg:px-16 md:px-8 flex flex-col gap-36">
         <ValuesSection />
 
         <ClientSection />

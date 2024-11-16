@@ -17,7 +17,7 @@ export function Resources() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl md:text-2xl font-semibold text-[#2E1065] tracking-wider">
+      <h2 className="text-2xl md:text-2xl lg:text-3xl  font-semibold text-[#2E1065] tracking-wider">
         RESOURCES
       </h2>
 
@@ -27,17 +27,17 @@ export function Resources() {
           <CollapsibleTrigger asChild>
             <Button
               variant="default"
-              className="w-full bg-[#21005E] justify-between "
+              className="w-full bg-[#21005E] justify-between text-sm sm:text-base "
             >
               <div className="flex items-center gap-2">
                 {/* Icon placeholder */}
-                <div className="w-7 h-7">
+                <div className="w-6 h-6 sm:w-7 sm:h-7">
                   <Image
                     src={resourcesList[0].icon}
                     alt={"Resource icon"}
                     width={30}
                     height={30}
-                  ></Image>
+                  />
                 </div>
                 <span>{resourcesList[0].label}</span>
               </div>
@@ -48,7 +48,7 @@ export function Resources() {
                   alt="chevron icon"
                   width={14}
                   height={6}
-                ></Image>
+                />
               </div>
             </Button>
           </CollapsibleTrigger>
@@ -61,15 +61,15 @@ export function Resources() {
                 onClick={() => setActiveResource(resource.label)}
               >
                 {/* Icon placeholder */}
-                <div className="w-7 h-7">
+                <div className="w-6 h-6 sm:w-7 sm:h-7">
                   <Image
                     src={resource.icon}
                     alt={"Resource icon"}
                     width={28}
                     height={38}
-                  ></Image>
+                  />
                 </div>
-                <span className="font-medium md:text-xl text-lg tracking-wider">
+                <span className="font-medium text-sm sm:text-base md:text-lg tracking-wider">
                   {resource.label}
                 </span>
               </Link>
@@ -92,15 +92,16 @@ export function Resources() {
             onClick={() => setActiveResource(resource.label)}
           >
             {/* Icon placeholder */}
-            <div className="w-9 h-9">
+            <div className="w-7 h-7 lg:w-9 lg:h-9 relative flex-shrink-0">
               <Image
                 src={resource.icon}
-                alt={"Resource icon"}
-                width={36}
-                height={36}
-              ></Image>
+                alt={`${resource.label} icon`}
+                fill
+                sizes="(max-width: 768px) 24px, 36px"
+                className="object-contain"
+              />
             </div>
-            <span className="font-medium md:text-xl text-lg tracking-wider ">
+            <span className="font-medium text-base lg:text-lg xl:text-xl tracking-wider">
               {resource.label}
             </span>
           </Link>

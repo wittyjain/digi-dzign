@@ -38,7 +38,7 @@ export default function Hero({
         <Image
           src={backgroundImage.desktop}
           alt="Background"
-          height={950}
+          height={1200}
           width={1450}
           className="mix-blend-luminosity"
         />
@@ -49,8 +49,8 @@ export default function Hero({
         <Image
           src={backgroundImage.mobile}
           alt="Background"
-          height={500}
-          width={400}
+          height={800}
+          width={600}
           className="mix-blend-luminosity"
         />
       </div>
@@ -73,7 +73,7 @@ export default function Hero({
 
         {/* Optional paragraph */}
         {paragraph && (
-          <p className="md:text-3xl text-lg font-normal leading-7 row-start-12 md:row-start-6 col-span-12  md:col-start-5 border-l-4 pl-4 mt-10 md:mt-0 border-[#A100FF] ">
+          <p className="md:text-3xl text-lg font-normal leading-7 row-start-12 md:row-start-6 col-span-12  md:col-start-5 border-l-4 pl-4 mt-0 border-[#A100FF] ">
             {paragraph}
           </p>
         )}
@@ -81,8 +81,8 @@ export default function Hero({
         {/* CTA Button section */}
         <div
           className={cn(
-            "col-span-12 md:col-start-9 mt-12 md:mt-0",
-            paragraph ? "row-start-9 md:row-start-3" : "row-start-9",
+            "col-span-12 md:col-start-9 mt-12 md:mt-0 md:row-start-4 row-start-9",
+            paragraph ? "row-start-9 md:row-start-4" : "",
             ""
           )}
         >

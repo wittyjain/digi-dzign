@@ -16,7 +16,7 @@ export function Topics() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-3xl md:text-2xl font-semibold tracking-wider text-[#2E1065] pb-1">
+      <h2 className="text-2xl md:text-2xl lg:text-3xl  font-semibold tracking-wider text-[#21005E] mb-6">
         TOPICS
       </h2>
 
