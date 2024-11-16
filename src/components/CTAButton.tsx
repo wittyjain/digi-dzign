@@ -29,7 +29,7 @@ export default function CTAButton({
           <Button
             className={cn(
               `relative h-auto p-0 overflow-hidden rounded-2xl w-full md:w-fit`,
-              'hover:rounded-full hover:scale-x-95 hover:rotate-0 transition-all duration-200 ease-in',
+              "hover:rounded-full hover:scale-x-95 hover:rotate-0 transition-all duration-200 ease-in",
               className
             )}
             style={{

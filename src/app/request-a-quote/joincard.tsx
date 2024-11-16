@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function JoinCard() {
   return (
-    <div className="bg-[#0A0219] py-8 px-4 lg:px-12 xl:px-16 lg:py-20 xl:py-24">
-      <Card className="w-full  border-none">
+    <div className="bg-[#0A0219] px-4 md:px-8 lg:px-12 xl:px-16  py-8 lg:py-16 ">
+      <Card className="w-full  rounded-3xl">
         <CardContent className="p-6 lg:p-8">
           <div className="flex flex-col">
             <div className="w-full flex flex-col gap-20">
