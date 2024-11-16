@@ -10,12 +10,12 @@ export function Featured() {
         Featured
       </h2>
       <Card className="overflow-hidden">
-        <div className="relative flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6 bg-[#2E1065]">
+        <div className="relative flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6 bg-gradient-to-br from-[#050337]  to-[#0C03AD]">
           <div className="space-y-4 text-white">
             <h4 className="text-white text-base sm:text-lg font-medium tracking-wider">
               {featuredContent.category}
             </h4>
-            <p className="text-xl  md:text-2xl font-normal">
+            <p className="text-xl  md:text-2xl font-normal leading-10 h-auto">
               {featuredContent.title}
             </p>
             <div className="flex items-center space-x-2 text-xs sm:text-sm md:text-base lg:text-lg pt-4 sm:pt-8 md:pt-16 lg:pt-24">
@@ -27,8 +27,8 @@ export function Featured() {
                 className="rounded-full"
               />
               <span>By {featuredContent.author}</span>
-              <span>•</span>
-              <span>{featuredContent.readTime}</span>
+              <span className="font-normal">•</span>
+              <span className="font-light">{featuredContent.readTime}</span>
             </div>
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-full">

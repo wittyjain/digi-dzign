@@ -14,14 +14,14 @@ interface LatestContentProps {
 export function LatestContent({ data }: LatestContentProps) {
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wider text-[#21005E] mb-6 md:uppercase">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wider text-[#21005E]  md:uppercase">
         Latest Content
       </h2>
       <div className="grid lg:grid-cols-2 gap-4 lg:gap-6">
         {data.map((content: Post, index: number) => (
           <Card
             key={index}
-            className="overflow-hidden border-none bg-[#F5F5F5]"
+            className="overflow-hidden border-none shadow-none "
           >
             <CardContent className="p-4 sm:p-6 md:p-8 lg:p-10 h-full">
               <div className="flex flex-col gap-9 justify-start h-full">

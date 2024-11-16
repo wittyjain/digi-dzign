@@ -32,7 +32,8 @@ export default async function insights() {
             mobile: "/images/our-insights/hero-bg-mobile.svg",
           }}
           backgroundPosition={{
-            desktop: "top-[-35%] left-[5%] h-[900px] w-[950px]",
+            desktop:
+              "lg:top-[-35%] md:top-[-45%] left-[5%] lg:h-[900px] lg:w-[950px]",
             mobile: "top-[-15%] left-0",
           }}
         />

@@ -9,6 +9,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 import { resourcesList, Resource } from "@/data/data";
 
 export function Resources() {
@@ -27,11 +28,11 @@ export function Resources() {
           <CollapsibleTrigger asChild>
             <Button
               variant="default"
-              className="w-full bg-[#21005E] justify-between text-sm sm:text-base "
+              className="w-full bg-[#21005E] justify-between text-sm sm:text-base px-4 py-6 rounded-3xl "
             >
               <div className="flex items-center gap-2">
                 {/* Icon placeholder */}
-                <div className="w-6 h-6 sm:w-7 sm:h-7">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 ">
                   <Image
                     src={resourcesList[0].icon}
                     alt={"Resource icon"}
@@ -42,7 +43,7 @@ export function Resources() {
                 <span>{resourcesList[0].label}</span>
               </div>
               {/* Chevron icon placeholder */}
-              <div className="w-4 h-4">
+              <div className="w-4 h-4 flex justify-center items-center">
                 <Image
                   src={"/icons/chevron-arrow.svg"}
                   alt="chevron icon"
@@ -52,7 +53,12 @@ export function Resources() {
               </div>
             </Button>
           </CollapsibleTrigger>
-          <CollapsibleContent className="mt-2">
+          <CollapsibleContent
+            className={cn(
+              "mt-2 overflow-hidden transition-all duration-500 ease-in-out",
+              isResourcesOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+            )}
+          >
             {resourcesList.slice(1).map((resource: Resource) => (
               <Link
                 key={resource.label}
