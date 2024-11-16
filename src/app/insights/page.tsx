@@ -33,7 +33,7 @@ export default async function insights() {
           }}
           backgroundPosition={{
             desktop:
-              "lg:top-[-35%] md:top-[-45%] left-[5%] lg:h-[900px] lg:w-[950px]",
+              "lg:top-[-35%] md:top-[-4%] left-[5%] lg:h-[900px] lg:w-[950px]",
             mobile: "top-[-15%] left-0",
           }}
         />

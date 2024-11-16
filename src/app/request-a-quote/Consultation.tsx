@@ -12,12 +12,12 @@ export default function Component() {
   );
 
   return (
-    <Card className="w-full overflow-hidden border-none outline-none shadow-none mb-8 p-4 pb-12 md:px-8 md:py-12 lg:px-16 lg:py-17">
+    <Card className="w-full overflow-hidden border-none outline-none shadow-none mb-8 sm:p-4 pb-12 md:px-8 md:py-12 lg:px-16 lg:py-17">
       <CardContent className="p-0">
         <div className="flex flex-col md:flex-row">
           {/* Left Section (1/3 width) */}
           <div className="w-full md:w-1/3 bg-[#2A0668] p-8 text-white rounded-l-3xl">
-            <h1 className="mb-8 text-4xl font-semibold leading-normal">
+            <h1 className="mb-8 text-4xl md:text-2xl font-semibold leading-normal">
               SPEAK WITH
               <br />
               AN EXPERT
