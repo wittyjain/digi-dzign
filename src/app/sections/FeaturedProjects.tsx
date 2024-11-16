@@ -1,5 +1,6 @@
 "use client";
 
+import ImageWithAspectRatio from "@/components/ImageWithAspectRatio";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
@@ -120,21 +121,30 @@ export default function FeaturedProjects() {
                 className="pl-2 md:pl-4 md:basis-2/3 lg:basis-1/2"
               >
                 <Card
-                  className="border-0 bg-white overflow-hidden group"
-                  //   style={{
-                  //     maskImage: `url('/images/card-mask-old.png')`,
-                  //   }}
+                  className="border-0 bg-white overflow-hidden group rounded-3xl"
+                  style={{
+                    maskImage: `url('/images/card-mask-old.png')`,
+                    maskSize: "contain",
+                    maskRepeat: "no-repeat",
+                    // maskComposite: "exclude",
+                    transform: index % 2 === 0 ? "" : "rotateY(180deg)",
+                  }}
                 >
                   <CardContent className="p-0 relative">
-                    <div className="relative aspect-[4/3] rounded-lg">
-                      <Image
+                    <div className="relative aspect-[2] lg:aspect-[2] xl:aspect-[1.5] rounded-3xl">
+                      <ImageWithAspectRatio
                         src={project.image}
                         alt={project.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
-                    <div className="m-6 space-y-2">
+                    <div
+                      className="m-6 space-y-2"
+                      style={{
+                        transform: index % 2 === 0 ? "" : "rotateY(180deg)",
+                      }}
+                    >
                       <h3 className="text-sm font-medium tracking-wider text-[#02021E]">
                         {project.category}
                       </h3>

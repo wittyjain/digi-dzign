@@ -143,8 +143,8 @@ export default async function OurInsights({ showHead = true }) {
                 </div>
               </div>
             </div>
-            <div className="w-full grid grid-cols-1 gap-8">
-              <CarouselContent className="px-4 lg:px-8 xl:px-12 -ml-2 md:-ml-4 gap-x-6">
+            <div className="w-full grid grid-cols-1">
+              <CarouselContent className="px-4 lg:px-8 xl:px-12 gap-x-4 lg:gap-x-6 xl:gap-x-8">
                 {posts.map((insight: Post, index: number) => {
                   const imageUrl = insight?.featuredImage?.node?.sourceUrl;
 
