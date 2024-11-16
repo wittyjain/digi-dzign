@@ -15,10 +15,10 @@ import ServicesCardCarousel from "./ServicesCardCarousel";
 import Link from "next/link";
 import { Service } from "@/types/service";
 import ServiceBadge from "@/components/ServiceBadge";
+import getAllServices from "@/queries/Services/getAllServices";
+import { getClient } from "@/lib/ApolloClient";
 
-interface ServicesProps {
-  services: Service[];
-}
+interface ServicesProps {}
 
 export const servicesList = [
   { name: "Website Development" },
@@ -42,8 +42,17 @@ export const servicesList = [
   { name: "AI design" },
 ];
 
-export default function Services({ services }: ServicesProps) {
-  console.log(services);
+export default async function Services({}: ServicesProps) {
+  const { data } = await getClient().query({
+    query: getAllServices,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 60 },
+      },
+    },
+  });
+
+  const services = data?.services?.nodes || {};
 
   return (
     <div className="mx-4 py-14 md:m-8 lg:m-16 lg:my-24">
@@ -99,7 +108,7 @@ export default function Services({ services }: ServicesProps) {
         </div>
         <div className="w-full grid grid-cols-1 gap-x-8">
           <CarouselContent className=" gap-8 flex">
-            <ServicesCardCarousel />
+            <ServicesCardCarousel services={services} />
           </CarouselContent>
         </div>
         <Link href={"/services"} className="w-full">

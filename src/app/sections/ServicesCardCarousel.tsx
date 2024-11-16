@@ -1,4 +1,7 @@
 import { CarouselItem } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
+import { Service } from "@/types/service";
+import Link from "next/link";
 import React, { Fragment } from "react";
 
 const carouselItems = [
@@ -8,7 +11,7 @@ const carouselItems = [
       "Your landing page is the first thing your customers, investors, and partners see.",
     image: "path/to/web-services-image.png",
     bg: "bg-web-services bg-cover bg-no-repeat mix-blend-luminosity",
-    textPosition: "translate-x-1/2 translate-y-1/2",
+    textPosition: "translate-x-[75%] translate-y-[75%]",
   },
   {
     title: "App Design",
@@ -41,7 +44,19 @@ const carouselItems = [
   },
 ];
 
-const organizeItems = (items: typeof carouselItems) => {
+const textPositionMap: { [key: string]: string } = {
+  center: "",
+  left: "-translate-x-1/2",
+  right: "translate-x-[75%]",
+  top: "-translate-y-1/2",
+  bottom: "translate-y-[75%]",
+  "top-left": "-translate-x-1/2 -translate-y-1/2",
+  "top-right": "translate-x-[75%] -translate-y-1/2",
+  "bottom-left": "-translate-x-1/2 translate-y-[75%]",
+  "bottom-right": "translate-x-[75%] translate-y-[75%]",
+};
+
+const organizeItems = (items: Service[]) => {
   const layout = [];
   let index = 0;
 
@@ -62,47 +77,85 @@ const organizeItems = (items: typeof carouselItems) => {
   return layout;
 };
 
-const ServicesCardCarousel = () => {
-  const organizedItems = organizeItems(carouselItems);
+interface ServicesCardCarouselProps {
+  services: Service[];
+}
+
+const ServicesCardCarousel = ({ services }: ServicesCardCarouselProps) => {
+  const organizedItems = organizeItems(services);
 
   return (
     <>
       {organizedItems.map((column, colIndex) => (
         <CarouselItem
           key={colIndex}
-          className={`group space-y-4 min-h-96 flex flex-col w-fit ${
+          className={`space-y-4 min-h-96 lg:min-h-[500px] flex flex-col w-fit ${
             colIndex % 2 === 0 ? "lg:basis-2/3" : "lg:basis-1/3"
           }`}
         >
-          {column.map((item, index) => (
-            <Fragment key={index}>
-              {colIndex % 2 === 0 ? (
-                <div
-                  key={item.title}
-                  className={`cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center group-hover:scale-110 ${item.bg}`}
-                >
-                  <div className={`max-w-[40%] ${item.textPosition}`}>
-                    <h3 className="text-lg font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-gray-300">{item.description}</p>
-                  </div>
-                </div>
-              ) : (
-                <div
-                  key={item.title}
-                  className={`cursor-pointer rounded-3xl w-full p-4 grow flex justify-center items-center ${item.bg}`}
-                >
-                  <div className={`max-w-[40%] ${item.textPosition}`}>
-                    <h3 className="text-lg font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-gray-300">{item.description}</p>
-                  </div>
-                </div>
-              )}
-            </Fragment>
-          ))}
+          {column.map((item, index) => {
+            const textPosition: keyof typeof textPositionMap =
+              item.serviceData.textPosition;
+
+            const serviceImg = item?.serviceData?.bgImage?.node;
+            const serviceCardStyle = cn(
+              `cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center hover:bg-[150%,150%] transition-all duration-500 ease-linear`,
+
+              item.serviceData.bgPosition
+            );
+
+            console.log(textPosition);
+
+            return (
+              <Fragment key={index}>
+                {colIndex % 2 === 0 ? (
+                  <Link
+                  href={`/services/${item.slug}`}
+                    key={item.title}
+                    className={serviceCardStyle}
+                    style={{
+                      background: `url(${serviceImg?.sourceUrl || ""}), ${
+                        item?.serviceData?.bgGradient
+                      }`,
+                    }}
+                  >
+                    <div
+                      className={`max-w-[40%] ${textPositionMap[textPosition]}`}
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-300">
+                        {item.serviceData.description}
+                      </p>
+                    </div>
+                  </Link>
+                ) : (
+                  <Link
+                  href={`/services/${item.slug}`}
+                    key={item.title}
+                    className={serviceCardStyle}
+                    style={{
+                      background: `url(${serviceImg?.sourceUrl || ""}), ${
+                        item?.serviceData?.bgGradient
+                      }`,
+                    }}
+                  >
+                    <div
+                      className={`max-w-[40%] ${textPositionMap[textPosition]}`}
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-300">
+                        {item.serviceData.description}
+                      </p>
+                    </div>
+                  </Link>
+                )}
+              </Fragment>
+            );
+          })}
         </CarouselItem>
       ))}
     </>
