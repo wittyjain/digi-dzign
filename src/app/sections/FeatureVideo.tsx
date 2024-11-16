@@ -42,7 +42,7 @@ export default function FeatureVideo() {
   }, []);
 
   return (
-    <div className="relative w-full h-[200vh] ">
+    <div className="relative w-full min-h-[150vh] ">
       <div className="sticky top-0 w-full h-screen flex items-center justify-center bg-[#FCFBFF] mt-6 lg:mt-12">
         <div className="absolute top-[10%] lg:top-0 left-0 w-full h-full lg:min-h-[100vh] bg-[#FCFBFF] grid grid-cols-1 lg:grid-cols-12 my-6 lg:my-12 px-4 py-12 xl:py-24 md:p-8 xl:px-16 pb-20 gap-y-8 sm:p-20">
           <div className="lg:col-span-6 flex items-end z-20">
@@ -68,11 +68,11 @@ export default function FeatureVideo() {
                   }}
                 >
                   <Image
-                    src={"/icons/right-arrow.svg"}
+                    src={"/icons/right-arrow-white.svg"}
                     alt={"right arrow"}
                     width={25}
                     height={25}
-                    className="invert"
+                    className=""
                   />
                 </span>
               </Link>

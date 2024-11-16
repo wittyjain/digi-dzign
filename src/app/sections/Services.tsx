@@ -43,14 +43,7 @@ export const servicesList = [
 ];
 
 export default async function Services({}: ServicesProps) {
-  const { data } = await getClient().query({
-    query: getAllServices,
-    context: {
-      fetchOptions: {
-        next: { revalidate: 60 },
-      },
-    },
-  });
+  const data = await getAllServices();
 
   const services = data?.services?.nodes || {};
 
@@ -85,11 +78,11 @@ export default async function Services({}: ServicesProps) {
                     }}
                   >
                     <Image
-                      src={"/icons/right-arrow.svg"}
+                      src={"/icons/right-arrow-white.svg"}
                       alt={"right arrow"}
                       width={25}
                       height={25}
-                      className="invert"
+                      className=""
                     />
                   </span>
                 </Button>
@@ -125,11 +118,11 @@ export default async function Services({}: ServicesProps) {
               }}
             >
               <Image
-                src={"/icons/right-arrow.svg"}
+                src={"/icons/right-arrow-white.svg"}
                 alt={"right arrow"}
                 width={25}
                 height={25}
-                className="invert"
+                className=""
               />
             </span>
           </Button>

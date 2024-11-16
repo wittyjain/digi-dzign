@@ -16,8 +16,6 @@ const Hero = ({ data }: HeroProps) => {
   const afterElement =
     "after:block after:w-[240px] after:h-[240px] after:bg-hero-cube lg:after:bg-none after:bg-cover after:bg-no-repeat after:absolute after:-bottom-[150%] md:after:-bottom-[80%] after:left-[30%] after:mix-blend-luminosity";
 
-  console.log(data);
-
   return (
     <div className="w-full grid grid-cols-12 px-4 py-12 md:p-8 xl:p-16 pb-20 gap-y-8 sm:p-20">
       <h1 className="font-semibold text-5xl md:text-7xl lg:text-8xl xl:text-9xl col-span-12 text-[#21005E] flex flex-col gap-y-12 ml-6 mb-20">

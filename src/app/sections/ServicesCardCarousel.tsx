@@ -53,12 +53,14 @@ const textPositionMap: { [key: string]: string } = {
   "top-left": "-translate-x-1/2 -translate-y-1/2",
   "top-right": "translate-x-[75%] -translate-y-1/2",
   "bottom-left": "-translate-x-1/2 translate-y-[75%]",
-  "bottom-right": "translate-x-[75%] translate-y-[75%]",
+  "bottom-right": "translate-x-[75%] translate-y-[60%] lg:translate-y-[75%]",
 };
 
 const organizeItems = (items: Service[]) => {
   const layout = [];
   let index = 0;
+
+  if (!items) return [];
 
   while (index < items.length) {
     // First column - 1 card
@@ -103,8 +105,6 @@ const ServicesCardCarousel = ({ services }: ServicesCardCarouselProps) => {
 
               item.serviceData.bgPosition
             );
-
-            console.log(textPosition);
 
             return (
               <Fragment key={index}>

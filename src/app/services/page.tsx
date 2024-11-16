@@ -5,8 +5,12 @@ import ContactForm from "@/app/sections/ContactForm";
 import Testimonials from "@/app/sections/Testimonials";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import ServicesCardCarousel from "../sections/ServicesCardCarousel";
+import getAllServices from "@/queries/Services/getAllServices";
 
-export default function Services() {
+export default async function Services() {
+  const data = await getAllServices();
+  const services = data?.services?.nodes || {};
+
   return (
     <main>
       <div className="mb-8 p-4 pb-12 md:px-8 md:py-12 lg:px-16 lg:py-17">
@@ -78,7 +82,7 @@ export default function Services() {
           }}
         >
           <CarouselContent className="px-4 md:px-8 lg:px-16">
-            <ServicesCardCarousel />
+            <ServicesCardCarousel services={services} />
           </CarouselContent>
         </Carousel>
 
