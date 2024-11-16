@@ -8,20 +8,19 @@ import Testimonials from "./sections/Testimonials";
 import OurInsights from "./sections/OurInsights";
 import { getClient } from "@/lib/ApolloClient";
 import getAllServices from "@/queries/Services/getAllServices";
+import getPageByUri from "@/queries/Page/getPageByUri";
+import FeatureVideo from "./sections/FeatureVideo";
 
 export default async function Home() {
-  const { data } = await getClient().query({
-    query: getAllServices,
-  });
-
-  console.log(data)
+  const pageData = await getPageByUri("/");
 
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start min-w-full overflow-hidden">
       <div className="w-full">
-        <Hero />
+        <Hero data={pageData.page.heroSection} />
+        <FeatureVideo />
         <FeaturedProjects />
-        <Services services={data?.services?.nodes} />
+        <Services />
         <Testimonials />
         <div>
           <Image

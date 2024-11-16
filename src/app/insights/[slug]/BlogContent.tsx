@@ -14,7 +14,7 @@ export default function BlogContent({ post }: BlogContentProps) {
 
   return (
     <div className="flex flex-col space-y-8">
-      <div>
+      <div className="w-full h-full">
         <Image
           src={featuredImage?.sourceUrl ?? ""}
           alt={post.title}

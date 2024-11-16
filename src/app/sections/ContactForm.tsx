@@ -77,8 +77,10 @@ export default function ContactForm() {
         </CardHeader>
         <Form {...form}>
           <form className="relative" onSubmit={form.handleSubmit(onSubmit)}>
-            <Card className="border-0 shadow-none bg-card-mask bg-no-repeat bg-cover overflow-hidden">
-              <CardContent className="relative p-2 pt-20 pb-12 lg:px-6 lg:pb-16 lg:pt-28 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
+            <Card
+              className="border-0 rounded-3xl shadow-none bg-gradient-to-br from-[#A100FF] to-[#21005E] lg:bg-card-mask bg-no-repeat bg-cover overflow-hidden"
+            >
+              <CardContent className="relative p-2 pt-8 pb-12 lg:px-6 lg:pb-16 lg:pt-28 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                 {/* <div
                   className="absolute top-0 left-0 w-full h-full rounded-xl z-0"
                   style={{
@@ -268,7 +270,9 @@ export default function ContactForm() {
                     }}
                     disabled={isSubmitting}
                   >
-                    <span>{isSubmitting ? "SUBMITTING..." : "GET IN TOUCH"}</span>
+                    <span>
+                      {isSubmitting ? "SUBMITTING..." : "GET IN TOUCH"}
+                    </span>
                     <div className="w-10 h-10 rounded-full flex justify-center items-center bg-white pr-1 text-base">
                       <Image
                         src={"/icons/right-arrow.svg"}

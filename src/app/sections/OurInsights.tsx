@@ -1,5 +1,3 @@
-"use client";
-
 import CTAButton from "@/components/CTAButton";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +8,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
+import { cn, formatDate, isNew } from "@/lib/utils";
+import getAllPosts from "@/queries/Posts/getAllPosts";
+import { Post } from "@/types/post";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,19 +43,21 @@ const insights = [
   },
 ];
 
-export default function OurInsights({ showHead = true }) {
-  const carouselRef = useRef<HTMLDivElement>(null);
+export default async function OurInsights({ showHead = true }) {
+  const data = await getAllPosts({ after: "null", first: 5 });
+  const posts = data.posts.nodes;
+  // const carouselRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "left" | "right") => {
-    if (carouselRef.current) {
-      const { scrollLeft, clientWidth } = carouselRef.current;
-      const scrollTo =
-        direction === "left"
-          ? scrollLeft - clientWidth
-          : scrollLeft + clientWidth;
-      carouselRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
-    }
-  };
+  // const scroll = (direction: "left" | "right") => {
+  //   if (carouselRef.current) {
+  //     const { scrollLeft, clientWidth } = carouselRef.current;
+  //     const scrollTo =
+  //       direction === "left"
+  //         ? scrollLeft - clientWidth
+  //         : scrollLeft + clientWidth;
+  //     carouselRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <div className="bg-[#0A0219] px-4 py-12 md:p-8 lg:px-16 lg:py-20 lg:pt-28">
@@ -143,72 +145,104 @@ export default function OurInsights({ showHead = true }) {
             </div>
             <div className="w-full grid grid-cols-1 gap-8">
               <CarouselContent className="px-4 lg:px-8 xl:px-12 -ml-2 md:-ml-4 gap-x-6">
-                {insights.map((insight, index) => (
-                  <CarouselItem
-                    key={index}
-                    className={`lg:basis-${index % 2 === 0 ? 1 : 2}/3`}
-                  >
-                    <Card
-                      className="text-white h-full rounded-3xl"
-                      style={{
-                        background:
-                          "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
-                      }}
+                {posts.map((insight: Post, index: number) => {
+                  const imageUrl = insight?.featuredImage?.node?.sourceUrl;
+
+                  return (
+                    <CarouselItem
+                      key={index}
+                      className={`lg:basis-${index % 2 === 0 ? 1 : 2}/3`}
                     >
-                      <CardContent
-                        className={cn(
-                          `p-0 h-full flex`,
-                          index === 0 ? "flex-col" : "flex-row-reverse"
-                        )}
+                      <Card
+                        className="text-white h-full rounded-3xl"
+                        style={{
+                          background:
+                            "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+                        }}
                       >
-                        <div className={`${index % 2 === 0 ? "" : "h-full"}`}>
-                          <Image
-                            src={insight.img}
-                            alt={""}
-                            width={0}
-                            height={0}
-                            sizes="100vw"
-                            style={{
-                              width: index % 2 === 0 ? "100%" : "auto",
-                              height: index % 2 === 0 ? "auto" : "100%",
-                            }} // optional
-                            className={cn(
-                              index % 2 === 0
-                                ? "rounded-t-3xl"
-                                : "rounded-r-3xl"
-                            )}
-                          />
-                        </div>
-                        <div
-                          className={`p-6 flex flex-col justify-between ${
-                            index % 2 === 0 ? "" : "max-w-[50%]"
-                          }`}
+                        <CardContent
+                          className={cn(
+                            `p-0 h-full flex`,
+                            index % 2 === 0 ? "flex-col" : "flex-col lg:flex-row-reverse"
+                          )}
                         >
-                          <span className="text-sm lg:text-base text-gray-300">
-                            {insight.isNew ? "NEW  • " : ""}SEP 27 2024
-                          </span>
-                          <h3
-                            className={cn(
-                              "font-semibold mt-4 mb-6 flex-grow",
-                              index % 2 === 0
-                                ? "text-xl xl:text-2xl"
-                                : "text-xl lg:text-2xl xl:text-4xl"
-                            )}
+                          <div className={`${index % 2 === 0 ? "" : "h-full"}`}>
+                            <Image
+                              src={imageUrl}
+                              alt={""}
+                              width={0}
+                              height={0}
+                              sizes="100vw"
+                              style={{
+                                width: index % 2 === 0 ? "100%" : "auto",
+                                height: index % 2 === 0 ? "auto" : "100%",
+                              }} // optional
+                              className={cn(
+                                index % 2 === 0
+                                  ? "rounded-t-3xl"
+                                  : "rounded-r-3xl"
+                              )}
+                            />
+                          </div>
+                          <div
+                            className={`p-6 flex flex-col justify-between ${
+                              index % 2 === 0 ? "" : "max-w-[50%]"
+                            }`}
                           >
-                            {insight.title}
-                          </h3>
-                          <Button
-                            variant="outline"
-                            className="text-[#A300FF] border-white hover:bg-white/80 mt-auto"
-                          >
-                            LEARN MORE
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
+                            <span className="text-sm lg:text-base text-gray-300">
+                              {isNew(new Date(insight.date)) ? "NEW  • " : ""}
+                              {formatDate(new Date(insight.date))}
+                            </span>
+                            <h3
+                              className={cn(
+                                "font-semibold mt-4 mb-6 flex-grow",
+                                index % 2 === 0
+                                  ? "text-xl xl:text-2xl"
+                                  : "text-xl lg:text-2xl xl:text-4xl"
+                              )}
+                            >
+                              {insight.title}
+                            </h3>
+                            <Link href={`/insights/${insight.slug}`} className="w-full lg:w-fit">
+                              <Button
+                                variant="outline"
+                                className="w-full text-[#A300FF] border-white hover:bg-white/80 mt-auto py-6"
+                              >
+                                LEARN MORE
+                              </Button>
+                            </Link>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  );
+                })}
               </CarouselContent>
+            </div>
+            <div className="px-4 lg:px-8 xl:px-12">
+              <Link href={"/insights"} className="w-full">
+                <Button
+                  variant="outline"
+                  className="lg:hidden flex w-full mt-12 items-center gap-12 bg-white border border-[#A300FF] text-[#A300FF] hover:bg-white/90 rounded-xl px-6 py-6"
+                >
+                  VIEW ALL INSIGHTS
+                  <span
+                    className="rounded-full"
+                    style={{
+                      background:
+                        "linear-gradient(191.95deg, #A100FF 8.73%, #21005E 56.58%)",
+                    }}
+                  >
+                    <Image
+                      src={"/icons/right-arrow-white.svg"}
+                      alt={"right arrow"}
+                      width={25}
+                      height={25}
+                      className=""
+                    />
+                  </span>
+                </Button>
+              </Link>
             </div>
           </Carousel>
         </div>

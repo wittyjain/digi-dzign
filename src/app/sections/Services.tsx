@@ -1,5 +1,3 @@
-"use client";
-
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -17,10 +15,10 @@ import ServicesCardCarousel from "./ServicesCardCarousel";
 import Link from "next/link";
 import { Service } from "@/types/service";
 import ServiceBadge from "@/components/ServiceBadge";
+import getAllServices from "@/queries/Services/getAllServices";
+import { getClient } from "@/lib/ApolloClient";
 
-interface ServicesProps {
-  services: Service[];
-}
+interface ServicesProps {}
 
 export const servicesList = [
   { name: "Website Development" },
@@ -44,11 +42,10 @@ export const servicesList = [
   { name: "AI design" },
 ];
 
-export default function Services({ services }: ServicesProps) {
-  const [activeCategory, setActiveCategory] = useState("ALL");
-  const [isDisabled, setIsDisabled] = useState(true);
+export default async function Services({}: ServicesProps) {
+  const data = await getAllServices();
 
-  console.log(services);
+  const services = data?.services?.nodes || {};
 
   return (
     <div className="mx-4 py-14 md:m-8 lg:m-16 lg:my-24">
@@ -81,11 +78,11 @@ export default function Services({ services }: ServicesProps) {
                     }}
                   >
                     <Image
-                      src={"/icons/right-arrow.svg"}
+                      src={"/icons/right-arrow-white.svg"}
                       alt={"right arrow"}
                       width={25}
                       height={25}
-                      className="invert"
+                      className=""
                     />
                   </span>
                 </Button>
@@ -104,7 +101,7 @@ export default function Services({ services }: ServicesProps) {
         </div>
         <div className="w-full grid grid-cols-1 gap-x-8">
           <CarouselContent className=" gap-8 flex">
-            <ServicesCardCarousel />
+            <ServicesCardCarousel services={services} />
           </CarouselContent>
         </div>
         <Link href={"/services"} className="w-full">
@@ -121,18 +118,18 @@ export default function Services({ services }: ServicesProps) {
               }}
             >
               <Image
-                src={"/icons/right-arrow.svg"}
+                src={"/icons/right-arrow-white.svg"}
                 alt={"right arrow"}
                 width={25}
                 height={25}
-                className="invert"
+                className=""
               />
             </span>
           </Button>
         </Link>
       </Carousel>
       <div className="my-8 lg:my-12 px-4 py-8 lg:px-8 lg:py-12 col-start-7 col-span-6	bg-[#FCFBFF] rounded-3xl">
-        <div className="flex flex-wrap justify-start items-center gap-1 max-w- mx-auto">
+        <div className="flex flex-wrap justify-start items-center gap-1 min-w-[600px] mx-auto overflow-x-auto">
           {servicesList.map((service, index) => {
             // Calculate column span based on service name length
             const isLongName = service.name.length > 25;
@@ -145,14 +142,14 @@ export default function Services({ services }: ServicesProps) {
             );
           })}
         </div>
-        <div className="w-full mt-8 md:mt-12 lg:mt-16 flex justify-between">
+        <div className="w-full mt-8 md:mt-12 lg:mt-16 flex justify-between flex-wrap space-y-8">
           <Image
             src={"/images/ideas-to-reality.png"}
             alt={"Let's turn your ideas into reality"}
             width="240"
             height="50"
           />
-          <div className="flex">
+          <div className="w-full md:w-fit flex justify-between">
             <span>Don't see it? </span>
             <Link href={"/contact-us"} className="text-[#21005E] flex">
               <span className="font-semibold mr-1">Ask us</span>
