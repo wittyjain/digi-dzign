@@ -102,7 +102,7 @@ const ServicesCardCarousel = ({ services }: ServicesCardCarouselProps) => {
             const serviceImg = item?.serviceData?.bgImage?.node;
             const serviceCardStyle = cn(
               `cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center !bg-no-repeat`,
-              item.serviceData.bgPosition,
+              `!${item.serviceData.bgPosition}`,
               "hover:!bg-[150%,150%] transition-all duration-500 ease-linear"
             );
 

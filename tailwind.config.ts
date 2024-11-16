@@ -83,6 +83,15 @@ const config: Config = {
       },
     },
   },
+  safelist: [
+    "!bg-cover",
+    "!bg-contain",
+    "!bg-center",
+    "!bg-right",
+    "!bg-top",
+    "!bg-left",
+    "!bg-bottom",
+  ],
   plugins: [
     require("tailwindcss-animate"),
     function ({ addUtilities }: { addUtilities: PluginAPI["addUtilities"] }) {
