@@ -1,4 +1,3 @@
-import ServiceCard from "@/components/ServiceCard";
 import { CarouselItem } from "@/components/ui/carousel";
 import React, { Fragment } from "react";
 
@@ -71,7 +70,7 @@ const ServicesCardCarousel = () => {
       {organizedItems.map((column, colIndex) => (
         <CarouselItem
           key={colIndex}
-          className={`space-y-4 min-h-96 flex flex-col w-fit ${
+          className={`group space-y-4 min-h-96 flex flex-col w-fit ${
             colIndex % 2 === 0 ? "lg:basis-2/3" : "lg:basis-1/3"
           }`}
         >
@@ -80,7 +79,7 @@ const ServicesCardCarousel = () => {
               {colIndex % 2 === 0 ? (
                 <div
                   key={item.title}
-                  className={`cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center ${item.bg}`}
+                  className={`cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center group-hover:scale-110 ${item.bg}`}
                 >
                   <div className={`max-w-[40%] ${item.textPosition}`}>
                     <h3 className="text-lg font-semibold text-white">

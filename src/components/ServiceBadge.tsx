@@ -28,7 +28,7 @@ export default function ServiceBadge({ name, icon, color }: ServiceBadgeProps) {
       )}
       <span
         className={cn(
-          "text-lg font-normal text-[#21005E]  group-hover:text-primary-foreground ",
+          "text-sm md:text-lg font-normal text-[#21005E]  group-hover:text-primary-foreground ",
           color ? `text-[${color}]` : ""
         )}
       >

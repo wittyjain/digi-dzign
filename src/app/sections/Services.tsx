@@ -1,5 +1,3 @@
-"use client";
-
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -45,9 +43,6 @@ export const servicesList = [
 ];
 
 export default function Services({ services }: ServicesProps) {
-  const [activeCategory, setActiveCategory] = useState("ALL");
-  const [isDisabled, setIsDisabled] = useState(true);
-
   console.log(services);
 
   return (
@@ -132,7 +127,7 @@ export default function Services({ services }: ServicesProps) {
         </Link>
       </Carousel>
       <div className="my-8 lg:my-12 px-4 py-8 lg:px-8 lg:py-12 col-start-7 col-span-6	bg-[#FCFBFF] rounded-3xl">
-        <div className="flex flex-wrap justify-start items-center gap-1 max-w- mx-auto">
+        <div className="flex flex-wrap justify-start items-center gap-1 min-w-[600px] mx-auto overflow-x-auto">
           {servicesList.map((service, index) => {
             // Calculate column span based on service name length
             const isLongName = service.name.length > 25;
@@ -145,14 +140,14 @@ export default function Services({ services }: ServicesProps) {
             );
           })}
         </div>
-        <div className="w-full mt-8 md:mt-12 lg:mt-16 flex justify-between">
+        <div className="w-full mt-8 md:mt-12 lg:mt-16 flex justify-between flex-wrap space-y-8">
           <Image
             src={"/images/ideas-to-reality.png"}
             alt={"Let's turn your ideas into reality"}
             width="240"
             height="50"
           />
-          <div className="flex">
+          <div className="w-full md:w-fit flex justify-between">
             <span>Don't see it? </span>
             <Link href={"/contact-us"} className="text-[#21005E] flex">
               <span className="font-semibold mr-1">Ask us</span>
