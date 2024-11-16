@@ -101,16 +101,16 @@ const ServicesCardCarousel = ({ services }: ServicesCardCarouselProps) => {
 
             const serviceImg = item?.serviceData?.bgImage?.node;
             const serviceCardStyle = cn(
-              `cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center hover:bg-[150%,150%] transition-all duration-500 ease-linear`,
-
-              item.serviceData.bgPosition
+              `cursor-pointer w-full rounded-3xl p-4 h-full flex justify-center items-center !bg-no-repeat`,
+              item.serviceData.bgPosition,
+              "hover:!bg-[150%,150%] transition-all duration-500 ease-linear"
             );
 
             return (
               <Fragment key={index}>
                 {colIndex % 2 === 0 ? (
                   <Link
-                  href={`/services/${item.slug}`}
+                    href={`/services/${item.slug}`}
                     key={item.title}
                     className={serviceCardStyle}
                     style={{
@@ -132,7 +132,7 @@ const ServicesCardCarousel = ({ services }: ServicesCardCarouselProps) => {
                   </Link>
                 ) : (
                   <Link
-                  href={`/services/${item.slug}`}
+                    href={`/services/${item.slug}`}
                     key={item.title}
                     className={serviceCardStyle}
                     style={{
